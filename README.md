@@ -1,1 +1,1 @@
-# redux-saga-hoc
+# reusable-redux-saga

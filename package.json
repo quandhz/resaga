@@ -1,0 +1,25 @@
+{
+  "name": "reusable-redux-saga",
+  "version": "0.0.0",
+  "description": "A reusable Reducer and Saga library",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo '> Test Hello World'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QuanDhz/reusable-redux-saga.git"
+  },
+  "keywords": [
+    "redux",
+    "reducer",
+    "saga",
+    "reusable"
+  ],
+  "author": "QuanDo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/QuanDhz/reusable-redux-saga/issues"
+  },
+  "homepage": "https://github.com/QuanDhz/reusable-redux-saga#readme"
+}
