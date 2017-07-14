@@ -1,0 +1,38 @@
+{
+  "ignore": [
+    "node_modules",
+    "dist",
+    "docker",
+    "docs"
+  ],
+  "presets": [
+    "latest"
+  ],
+  "env": {
+    "test": {
+      "plugins": [
+        "istanbul"
+      ]
+    }
+  },
+  "plugins": [
+    [
+      "transform-runtime",
+      {
+        "polyfill": true,
+        "regenerator": true
+      }
+    ],
+    [
+      "module-resolver",
+      {
+        "root": [
+          "./src"
+        ],
+        "alias": {
+          "test": "./tests"
+        }
+      }
+    ]
+  ]
+}
