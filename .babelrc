@@ -1,38 +1,8 @@
 {
-  "ignore": [
-    "node_modules",
-    "dist",
-    "docker",
-    "docs"
-  ],
-  "presets": [
-    "latest"
-  ],
+  "presets": ["es2015", "stage-0", "react"],
   "env": {
-    "test": {
-      "plugins": [
-        "istanbul"
-      ]
+    "development": {
+      "presets": ["react-hmre"]
     }
-  },
-  "plugins": [
-    [
-      "transform-runtime",
-      {
-        "polyfill": true,
-        "regenerator": true
-      }
-    ],
-    [
-      "module-resolver",
-      {
-        "root": [
-          "./src"
-        ],
-        "alias": {
-          "test": "./tests"
-        }
-      }
-    ]
-  ]
+  }
 }

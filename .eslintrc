@@ -1,13 +1,23 @@
 {
   "parser": "babel-eslint",
-  "extends": "airbnb/base",
-  "parserOptions": {
-    "ecmaVersion": 8,
-    "sourceType": "module"
-  },
+  "extends": "airbnb",
   "env": {
-    "es6": true,
-    "node": true
+    "browser": true,
+    "node": true,
+    "jest": true,
+    "es6": true
+  },
+  "plugins": [
+    "redux-saga",
+    "react",
+    "jsx-a11y"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
   },
   "rules": {
     "arrow-parens": [
@@ -27,6 +37,7 @@
     "import/no-dynamic-require": 0,
     "import/no-extraneous-dependencies": 0,
     "import/no-named-as-default": 0,
+    "import/no-unresolved": 2,
     "import/prefer-default-export": 0,
     "indent": [
       2,
@@ -35,74 +46,39 @@
         "SwitchCase": 1
       }
     ],
-    "linebreak-style": [
+    "jsx-a11y/aria-props": 2,
+    "jsx-a11y/heading-has-content": 0,
+    "jsx-a11y/href-no-hash": 2,
+    "jsx-a11y/label-has-for": 2,
+    "jsx-a11y/mouse-events-have-key-events": 2,
+    "jsx-a11y/role-has-required-aria-props": 2,
+    "jsx-a11y/role-supports-aria-props": 2,
+    "max-len": 0,
+    "newline-per-chained-call": 0,
+    "no-confusing-arrow": 0,
+    "no-console": 1,
+    "no-use-before-define": 0,
+    "prefer-template": 2,
+    "class-methods-use-this": 0,
+    "react/forbid-prop-types": 0,
+    "react/jsx-first-prop-new-line": [
       2,
-      "unix"
+      "multiline"
     ],
-    "new-cap": [
-      2,
-      {
-        "properties": false
-      }
-    ],
-    "no-unused-vars": [
-      2,
-      {
-        "vars": "all",
-        "args": "after-used"
-      }
-    ],
-    "no-use-before-define": [
-      2
-    ],
-    "no-trailing-spaces": [
-      2
-    ],
-    "quotes": [
-      2,
-      "single"
-    ],
-    "semi": [
-      2,
-      "always"
-    ],
-    "wrap-iife": [
-      2,
-      "outside"
-    ],
-    "strict": [
-      2,
-      "global"
-    ],
-    "brace-style": 2,
-    "block-spacing": [
-      2,
-      "always"
-    ],
-    "keyword-spacing": [2, {"before": true, "after": true, "overrides": {}}],
-    "space-before-blocks": 2,
-    "space-before-function-paren": [2, {"anonymous": "always", "named": "never"}],
-    "comma-spacing": [2, {"before": false, "after": true}],
-    "comma-style": [2, "last"],
-    "no-lonely-if": 2,
-    "array-bracket-spacing": [2, "never"],
-    "no-spaced-func": [2],
-    "space-in-parens": [2, "never"],
-    "space-infix-ops": 2,
-    "no-param-reassign": ["error", { "props": false }],
-    "max-len": 0
+    "react/jsx-filename-extension": 0,
+    "react/jsx-no-target-blank": 0,
+    "react/require-extension": 0,
+    "react/self-closing-comp": 0,
+    "redux-saga/no-yield-in-race": 2,
+    "redux-saga/yield-effects": 2,
+    "require-yield": 0,
+    "import/no-webpack-loader-syntax": 0
   },
   "settings": {
     "import/resolver": {
-      "babel-module": {}
+      "webpack": {
+        "config": "./internals/webpack/webpack.prod.babel.js"
+      }
     }
-  },
-  "globals": {
-    "after": true,
-    "afterEach": true,
-    "before": true,
-    "beforeEach": true,
-    "describe": true,
-    "it": true
   }
 }

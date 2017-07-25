@@ -1,0 +1,26 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+/**
+ * Created by quando on 3/4/17.
+ */
+
+var PAGE = exports.PAGE = 'page';
+var SUBMIT = exports.SUBMIT = 'submit';
+
+var BEFORE_SUBMIT = exports.BEFORE_SUBMIT = 'beforeSubmit';
+var ON_SUCCESS = exports.ON_SUCCESS = 'onSubmitSuccess';
+var ON_ERROR = exports.ON_ERROR = 'onSubmitError';
+
+var HANDLE_SUCCESS = exports.HANDLE_SUCCESS = 'processResult';
+var HANDLE_ERROR = exports.HANDLE_ERROR = 'processError';
+
+/**
+ * Setting in CONFIG, manually cleaning up redux store - default: false
+ * If set to true, onSubmitHOC will not cleanup the page's redux store on componentWillUnmount
+ * I hope that you know exactly what you're doing.
+ */
+var MANUALLY_CLEANUP = exports.MANUALLY_CLEANUP = 'manuallyCleanup';
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uL2xpYi9jb25maWcuanMiXSwibmFtZXMiOlsiUEFHRSIsIlNVQk1JVCIsIkJFRk9SRV9TVUJNSVQiLCJPTl9TVUNDRVNTIiwiT05fRVJST1IiLCJIQU5ETEVfU1VDQ0VTUyIsIkhBTkRMRV9FUlJPUiIsIk1BTlVBTExZX0NMRUFOVVAiXSwibWFwcGluZ3MiOiI7Ozs7O0FBQUE7Ozs7QUFJTyxJQUFNQSxzQkFBTyxNQUFiO0FBQ0EsSUFBTUMsMEJBQVMsUUFBZjs7QUFFQSxJQUFNQyx3Q0FBZ0IsY0FBdEI7QUFDQSxJQUFNQyxrQ0FBYSxpQkFBbkI7QUFDQSxJQUFNQyw4QkFBVyxlQUFqQjs7QUFFQSxJQUFNQywwQ0FBaUIsZUFBdkI7QUFDQSxJQUFNQyxzQ0FBZSxjQUFyQjs7QUFFUDs7Ozs7QUFLTyxJQUFNQyw4Q0FBbUIsaUJBQXpCIiwiZmlsZSI6ImNvbmZpZy5qcyIsInNvdXJjZXNDb250ZW50IjpbIi8qKlxuICogQ3JlYXRlZCBieSBxdWFuZG8gb24gMy80LzE3LlxuICovXG5cbmV4cG9ydCBjb25zdCBQQUdFID0gJ3BhZ2UnO1xuZXhwb3J0IGNvbnN0IFNVQk1JVCA9ICdzdWJtaXQnO1xuXG5leHBvcnQgY29uc3QgQkVGT1JFX1NVQk1JVCA9ICdiZWZvcmVTdWJtaXQnO1xuZXhwb3J0IGNvbnN0IE9OX1NVQ0NFU1MgPSAnb25TdWJtaXRTdWNjZXNzJztcbmV4cG9ydCBjb25zdCBPTl9FUlJPUiA9ICdvblN1Ym1pdEVycm9yJztcblxuZXhwb3J0IGNvbnN0IEhBTkRMRV9TVUNDRVNTID0gJ3Byb2Nlc3NSZXN1bHQnO1xuZXhwb3J0IGNvbnN0IEhBTkRMRV9FUlJPUiA9ICdwcm9jZXNzRXJyb3InO1xuXG4vKipcbiAqIFNldHRpbmcgaW4gQ09ORklHLCBtYW51YWxseSBjbGVhbmluZyB1cCByZWR1eCBzdG9yZSAtIGRlZmF1bHQ6IGZhbHNlXG4gKiBJZiBzZXQgdG8gdHJ1ZSwgb25TdWJtaXRIT0Mgd2lsbCBub3QgY2xlYW51cCB0aGUgcGFnZSdzIHJlZHV4IHN0b3JlIG9uIGNvbXBvbmVudFdpbGxVbm1vdW50XG4gKiBJIGhvcGUgdGhhdCB5b3Uga25vdyBleGFjdGx5IHdoYXQgeW91J3JlIGRvaW5nLlxuICovXG5leHBvcnQgY29uc3QgTUFOVUFMTFlfQ0xFQU5VUCA9ICdtYW51YWxseUNsZWFudXAnO1xuIl19
