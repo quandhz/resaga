@@ -16,7 +16,6 @@ if [ "$answer" = 'y' -o "$answer" = 'Y' ]; then
     npm version $1
     npm run build:component
     npm publish
-    git push origin master --follow-tags
 else
     exit 1
 fi
