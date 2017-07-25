@@ -24,7 +24,7 @@
     "coverage": "scripty",
     "start": "SCRIPTY_PARALLEL=true scripty"
   },
-  "author": "Quan Do",
+  "author": "Quan Do @UGROOP (quan.dhz@gmail.com)",
   "license": "MIT",
   "devDependencies": {
     "babel-cli": "^6.5.1",
