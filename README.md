@@ -10,18 +10,27 @@ A reusable Reducer and Saga HOC library
 npm install --save resaga
 ```
 
+## Usages
+### Wrap your component by the HOC
 ```js
+// MyBookPage.js
+export class MyBookPage extends PureComponent {
+  // ...
+}
+
 const configs = {
   page: 'MyBookPage',
-  sagas: {
+  submit: {
     getBooks: () => fetch('get', '/api/books'),
-    createBook: (data) => fetch('post', '/api/books', data),
   },
 };
 export default resaga(MyBookPage, configs);
 ```
+
+### Use the injected props
 Props `resaga` will be attached to `MyBookPage` component
 ```js
+// MyBookPage.js
 componentDidMount = () => this.props.resaga.dispatch('getBooks');
 componentWillReceiveProps = (nextProps) =>
   this.props.resaga.analyse(
@@ -29,7 +38,7 @@ componentWillReceiveProps = (nextProps) =>
     { getBooks: { onSuccess: this.getBooksSuccess } }
   );
 getBooksSuccess = (books) => {
-  // do something with the result
+  // will be called when server returns some results
 }
 ```
 
@@ -38,6 +47,15 @@ getBooksSuccess = (books) => {
 ```
 handleSubmit = () => {
   this.props.resaga.dispatch(book, 'createBook');
+};
+```
+your `configs` will look like this
+```js
+const configs = {
+  page: 'MyBookPage',
+  submit: {
+    createBook: (book) => fetch('post', '/api/books', book),
+  },
 };
 ```
 2. `resaga.analyse`: utility function, to be used in `componentWillReceiveProps`, using this function ensures that every submission only return value once
