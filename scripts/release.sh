@@ -10,7 +10,6 @@ if [ -z "$1" ]; then
 fi
 read -n1 -p "Have you remembered to update the CHANGELOG? (y/n) " answer
 if [ "$answer" = 'y' -o "$answer" = 'Y' ]; then
-    npm run generate-readme
     if [ -n "$(git status --porcelain)" ]; then
         git commit README.md -m 'Update README'
     fi
