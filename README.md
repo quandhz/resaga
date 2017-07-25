@@ -1,5 +1,7 @@
 # React Resaga
 A reusable Reducer and Saga HOC library
+[![codecov](https://codecov.io/gh/QuanDhz/resaga/branch/master/graph/badge.svg)](https://codecov.io/gh/QuanDhz/resaga)
+[![Build Status](https://travis-ci.org/QuanDhz/resaga.svg?branch=master)](https://travis-ci.org/QuanDhz/resaga)
 
 ## Install
 
