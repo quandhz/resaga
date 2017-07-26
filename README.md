@@ -43,13 +43,14 @@ getBooksSuccess = (books) => {
 ```
 
 ## API
-1. `resaga.dispatch`
+### `resaga.dispatch`
+Dispatch to Redux store.
 ```
 handleSubmit = () => {
   this.props.resaga.dispatch(book, 'createBook');
 };
 ```
-your `configs` will look like this
+Your `configs` will look like this, this is to tell what the saga should do when it receives `createBook`.
 ```js
 const configs = {
   page: 'MyBookPage',
@@ -58,7 +59,8 @@ const configs = {
   },
 };
 ```
-2. `resaga.analyse`: utility function, to be used in `componentWillReceiveProps`, using this function ensures that every submission only return value once
+### `resaga.analyse`: utility function, to be used with `componentWillReceiveProps`.
+Using this function ensures that every submission only return value once
 ```
 componentWillReceiveProps = (nextProps) => 
     this.props.resaga.analyse(nextProps, {
@@ -71,14 +73,15 @@ First parameter is `nextProps`, second parameter is config object:
 - `onSuccess`which function to be called when saga return success.
 - `onError`: which function to be called when saga return error.
 - `manuallyAcknowledge (default: false)`:  whether the HOC should automatically acknowledge (see below).
-3. `resaga.acknowledge`: acknowledge by cleaning up redux data of a request
+### `resaga.acknowledge`: acknowledge by cleaning up redux data of a request
 ```
 createBookWillReceiveProps = (...) => {
   this.props.resaga.acknowledge('createBook');
   ...
 }
 ```
-4. `resaga.cleanup`: clear the whole page in redux data store. By default, this will be automatically called on `componentWillUnmount` if `MANUALLY_CLEANUP` in CONFIG is not set to true (default: false).
+### `resaga.cleanup`: clear the whole page in redux data store. 
+By default, this will be automatically called on `componentWillUnmount` if `MANUALLY_CLEANUP` in CONFIG is not set to true (default: false).
 ```
 // manually clean up
 this.props.resaga.cleanup('MyBookPage');
