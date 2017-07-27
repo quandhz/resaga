@@ -12,6 +12,7 @@ For example, say we need a `MyBookPage` component that do 1 job:
 - Get all books every time we mount the component (Backend API: `GET /api/books`)
 
 Then our component will look similar to this with `redux-saga`
+
 ![before resaga](screenshots/before.png)
 
 What if I handle everything for you, and all you need to do is to tell `resaga`:
@@ -20,9 +21,11 @@ What if I handle everything for you, and all you need to do is to tell `resaga`:
 - what to do when server returns result
 
 Then your component will only look like this:
+
 ![after resaga](screenshots/after.png)
 
 If you use redux-dev-tool in Chrome, time-travel debugging is also available
+
 ![debug](screenshots/debug.png)
 
 So, you get the best of `redux-saga` world, without writing any reducer nor sagas code.
