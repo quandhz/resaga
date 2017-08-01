@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { PureComponent, PropTypes } from 'react';
-import { PAGE } from './main';
+import { PAGE } from './app';
 import resaga from '../../../build';
 
 export class Counter extends PureComponent {

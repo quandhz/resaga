@@ -24,6 +24,7 @@
     "test:lint": "scripty",
     "test:jest": "scripty",
     "coverage": "scripty",
+    "codecov": "scripty",
     "start": "SCRIPTY_PARALLEL=true scripty"
   },
   "author": "Quan Do @UGROOP (quan.dhz@gmail.com)",
