@@ -6,12 +6,13 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import configureStore from './utils/configureStore';
 import Counter from './Counter';
-import { reducer } from '../../../build';
+import resaga, { reducer } from '../../../build';
 
 const PAGE = 'CounterPage';
 const store = configureStore({ [PAGE]: reducer(PAGE) });
+const WrappedCounter = resaga(Counter, { page: PAGE });
 
 render(
-  <Provider store={store}><Counter /></Provider>,
+  <Provider store={store}><WrappedCounter /></Provider>,
   document.getElementById('root')
 );
