@@ -1,3 +1,3 @@
 #!/bin/sh -e
 
-jest
+jest lib --collectCoverageFrom="lib/**/*.{js,jsx}"
