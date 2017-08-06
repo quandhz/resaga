@@ -1,19 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-// eslint-disable-next-line react/prefer-stateless-function
-export default class Posts extends Component {
-  render() {
-    return (
-      <ul>
-        {this.props.posts.map((post, i) =>
-          <li key={i}>{post.title}</li>
-        )}
-      </ul>
-    );
-  }
-}
+const Posts = ({ posts }) => {
+  const list = posts.map((post, i) => <li key={i}>{post.title}</li>);
+  return <ul>{list}</ul>;
+};
 
 Posts.propTypes = {
-  posts: PropTypes.array.isRequired,
+  posts: PropTypes.array,
 };
+
+Posts.defaultProps = {
+  posts: [],
+};
+
+export default Posts;

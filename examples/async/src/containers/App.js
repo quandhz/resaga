@@ -6,7 +6,7 @@ import resaga from '../../../../build';
 import Picker from '../components/Picker';
 import Posts from '../components/Posts';
 
-class App extends PureComponent {
+export class App extends PureComponent {
   componentDidMount = () => this.handleChange('reactjs');
 
   componentWillReceiveProps = (nextProps) =>
@@ -35,6 +35,10 @@ class App extends PureComponent {
     const selectedReddit = this.props.resaga.getValue('selectedReddit');
     const posts = this.props.resaga.getValue('posts') || [];
     const lastUpdated = this.props.resaga.getValue('lastUpdated');
+
+    const status = lastUpdated && <span>Last updated at {new Date(lastUpdated).toLocaleTimeString()}.</span>;
+    const content = posts.length ? <Posts posts={posts} /> : <h2>Loading...</h2>;
+
     return (
       <div>
         <Picker
@@ -43,16 +47,9 @@ class App extends PureComponent {
           options={['reactjs', 'frontend']}
         />
         <p>
-          {lastUpdated && <span>Last updated at {new Date(lastUpdated).toLocaleTimeString()}.</span>}
-          {' '}
-          <a href="#" onClick={this.handleRefresh}>Refresh</a>
+          {status} <a href="#" onClick={this.handleRefresh}>Refresh</a>
         </p>
-        {!posts.length && <h2>Loading...</h2>}
-        {posts.length &&
-          <div>
-            <Posts posts={posts} />
-          </div>
-        }
+        {content}
       </div>
     );
   }

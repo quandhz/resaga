@@ -1,7 +1,7 @@
 import fetch from 'isomorphic-fetch';
 
 export const PAGE = 'AsyncPage';
-
+export const req = { fetch };
 export const CONFIG = {
   page: PAGE,
   processResult: {
@@ -11,6 +11,6 @@ export const CONFIG = {
     }),
   },
   submit: {
-    fetchReddit: async (reddit) => (await fetch(`http://www.reddit.com/r/${reddit}.json`)).json(),
+    fetchReddit: async (reddit) => (await req.fetch(`http://www.reddit.com/r/${reddit}.json`)).json(),
   },
 };
