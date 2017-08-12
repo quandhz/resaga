@@ -25,6 +25,15 @@ describe('Counter', () => {
       expect(props).toBeDefined();
       expect(props.resaga).toBe(resaga);
     });
+
+    describe('componentDidMount()', () => {
+      it('should work correctly', () => {
+        const component = rendered.instance();
+        component.componentDidMount();
+        expect(resaga.setValue).toBeCalledWith(key, 0);
+      });
+    });
+
     it('#init', () => {
       const btn = rendered.find('#init');
       expect(btn.length).toBe(1);
