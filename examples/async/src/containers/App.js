@@ -35,9 +35,10 @@ export class App extends PureComponent {
     const selectedReddit = this.props.resaga.getValue('selectedReddit');
     const posts = this.props.resaga.getValue('posts') || [];
     const lastUpdated = this.props.resaga.getValue('lastUpdated');
+    const isLoading = this.props.resaga.isLoading('fetchReddit');
 
     const status = lastUpdated && <span>Last updated at {new Date(lastUpdated).toLocaleTimeString()}.</span>;
-    const content = posts.length ? <Posts posts={posts} /> : <h2>Loading...</h2>;
+    const content = isLoading ? <h2>Loading...</h2> : <Posts posts={posts} />;
 
     return (
       <div>
