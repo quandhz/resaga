@@ -22,6 +22,7 @@
     "test:counter": "scripty",
     "examples:async": "scripty",
     "test:async": "scripty",
+    "examples:global": "scripty",
     "build:component": "scripty",
     "test": "scripty",
     "test:lint": "scripty",
