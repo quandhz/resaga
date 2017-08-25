@@ -19,6 +19,7 @@ render(
   <Provider store={store}>
     <div>
       <App />
+      <App />
       <hr />
       <OtherApp />
     </div>

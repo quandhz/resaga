@@ -16,7 +16,7 @@ export class App extends PureComponent {
     );
 
   setOtherReddit = (redditChannel) =>
-    this.props.resaga.dispatch(redditChannel, 'fetchReddit', OTHER_PAGE);
+    this.props.resaga.dispatch(redditChannel, 'fetchReddit', 'not_exist');
 
   fetchReddit = (redditChannel) => {
     this.props.resaga.setValue('posts', []);
