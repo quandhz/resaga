@@ -11,17 +11,20 @@ export class App extends PureComponent {
 
   componentWillReceiveProps = (nextProps) =>
     this.props.resaga.analyse(nextProps,
-      { fetchReddit: { onSuccess: this.fetchSuccess } }
+      { fetchReddit: { before: this.beforeFetch, onSuccess: this.fetchSuccess } }
     );
 
   fetchReddit = (redditChannel) => {
-    this.props.resaga.setValue('posts', []);
     const currentChannel = this.props.resaga.getValue('selectedReddit');
     this.props.resaga.dispatch(redditChannel || currentChannel, 'fetchReddit');
   };
 
-  fetchSuccess = ({ posts, lastUpdated }, redditChannel) => {
-    this.props.resaga.setValue('selectedReddit', redditChannel);
+  beforeFetch = (payload) => {
+    this.props.resaga.setValue('posts', []);
+    this.props.resaga.setValue('selectedReddit', payload);
+  };
+
+  fetchSuccess = ({ posts, lastUpdated }) => {
     this.props.resaga.setValue('posts', posts);
     this.props.resaga.setValue('lastUpdated', lastUpdated);
   };
