@@ -10,6 +10,7 @@ describe('App', () => {
     cleanup: jest.fn(),
     setValue: jest.fn(),
     getValue: jest.fn(),
+    isLoading: jest.fn(),
   };
   const rendered = shallow(<App resaga={resaga} />);
 
@@ -93,6 +94,21 @@ describe('App', () => {
       page.fetchReddit = jest.fn();
       page.handleRefresh();
       expect(page.fetchReddit).toBeCalled();
+    });
+  });
+
+  describe('render()', () => {
+    it('isLoading true', () => {
+      const page = rendered.instance();
+      resaga.isLoading = jest.fn(() => true);
+      page.render();
+      expect(resaga.isLoading).toBeCalled();
+    });
+    it('isLoading false', () => {
+      const page = rendered.instance();
+      resaga.isLoading = jest.fn(() => false);
+      page.render();
+      expect(resaga.isLoading).toBeCalled();
     });
   });
 });
