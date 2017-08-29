@@ -1,4 +1,4 @@
-# React Resaga [![npm version](https://badge.fury.io/js/resaga.svg)](https://www.npmjs.com/package/resaga) [![codecov](https://codecov.io/gh/QuanDhz/resaga/branch/master/graph/badge.svg)](https://codecov.io/gh/QuanDhz/resaga) [![Build Status](https://travis-ci.org/QuanDhz/resaga.svg?branch=master)](https://travis-ci.org/QuanDhz/resaga)
+# React Resaga [![npm version](https://badge.fury.io/js/resaga.svg)](https://www.npmjs.com/package/resaga) [![codecov](https://codecov.io/gh/quandhz/resaga/branch/master/graph/badge.svg)](https://codecov.io/gh/QuanDhz/resaga) [![Build Status](https://travis-ci.org/quandhz/resaga.svg?branch=master)](https://travis-ci.org/QuanDhz/resaga)
 
 A reusable Reducer and Saga HOC library
 
