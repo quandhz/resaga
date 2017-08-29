@@ -4,5 +4,8 @@
     "development": {
       "presets": ["react-hmre"]
     }
-  }
+  },
+  "ignore": [
+    "**/*.test.js"
+  ]
 }
