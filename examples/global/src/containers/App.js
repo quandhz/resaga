@@ -2,7 +2,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { CONFIG } from './config';
-import { OTHER_PAGE } from './otherConfig';
 import resaga from '../../../../build';
 import Picker from '../components/Picker';
 import Posts from '../components/Posts';
@@ -16,7 +15,11 @@ export class App extends PureComponent {
     );
 
   setOtherReddit = (redditChannel) =>
-    this.props.resaga.dispatch(redditChannel, 'fetchReddit', 'OtherAsyncPage');
+    this.props.resaga.dispatch(redditChannel, 'fetchReddit', 'OtherAsyncPage', { onSuccess: this.fetchOtherRedditSuccess });
+
+  fetchOtherRedditSuccess = (result, payload) => {
+    console.log('fetchOtherRedditSuccess result, payload', result, payload);
+  };
 
   fetchReddit = (redditChannel) => {
     this.props.resaga.setValue('posts', []);
@@ -36,6 +39,7 @@ export class App extends PureComponent {
   handleRefresh = () => this.fetchReddit();
 
   render() {
+    console.log('render', this.props);
     const selectedReddit = this.props.resaga.getValue('selectedReddit');
     const posts = this.props.resaga.getValue('posts') || [];
     const lastUpdated = this.props.resaga.getValue('lastUpdated');
@@ -69,10 +73,6 @@ export class App extends PureComponent {
 App.propTypes = {
   resaga: PropTypes.object,
   dispatch: PropTypes.func,
-};
-
-App.defaultProps = {
-  posts: [],
 };
 
 export default resaga(App, CONFIG);
