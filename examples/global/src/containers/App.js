@@ -14,11 +14,14 @@ export class App extends PureComponent {
       { fetchReddit: { onSuccess: this.fetchSuccess } }
     );
 
-  setOtherReddit = (redditChannel) =>
-    this.props.resaga.dispatch(redditChannel, 'fetchReddit', 'OtherAsyncPage', { onSuccess: this.fetchOtherRedditSuccess });
+  setOtherReddit = (payload) =>
+    this.props.resaga.dispatchTo('OtherAsyncPage', 'fetchReddit', {
+      payload,
+      onSuccess: this.fetchOtherRedditSuccess,
+    });
 
   fetchOtherRedditSuccess = (result, payload) => {
-    console.log('fetchOtherRedditSuccess result, payload', result, payload);
+    console.log(this.props.id, 'fetchOtherRedditSuccess result, payload', result, payload);
   };
 
   fetchReddit = (redditChannel) => {
@@ -62,15 +65,16 @@ export class App extends PureComponent {
         <br />
         <b>Set Other Reddit:</b>
         <br />
-        - <a href="#" onClick={() => this.setOtherReddit('reactjs')}>reactjs</a>
+        - <a href="#" onClick={() => this.setOtherReddit('reactjs')}>111 reactjs</a>
         <br />
-        - <a href="#" onClick={() => this.setOtherReddit('frontend')}>frontend</a>
+        - <a href="#" onClick={() => this.setOtherReddit('frontend')}>111 frontend</a>
       </div>
     );
   }
 }
 
 App.propTypes = {
+  id: PropTypes.number,
   resaga: PropTypes.object,
   dispatch: PropTypes.func,
 };

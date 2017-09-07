@@ -18,7 +18,8 @@ store.runSaga(saga);
 render(
   <Provider store={store}>
     <div>
-      <App />
+      <App id={1} />
+      <App id={22} />
       <hr />
       <OtherApp />
     </div>
