@@ -1,33 +1,43 @@
 /* eslint-disable jsx-a11y/href-no-hash */
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { CONFIG } from './config';
+import { CONFIG } from './otherConfig';
 import resaga from '../../../../build';
 import Picker from '../components/Picker';
 import Posts from '../components/Posts';
 
-export class App extends PureComponent {
-  componentDidMount = () => this.handleChange('reactjs');
+export class OtherApp extends PureComponent {
+  state = {
+    result: false,
+  };
+
+  componentDidMount = () => this.handleChange('frontend');
 
   componentWillReceiveProps = (nextProps) =>
     this.props.resaga.analyse(nextProps,
-      { fetchReddit: { onSuccess: this.fetchSuccess } }
+      { fetchReddit: { before: this.beforeFetch, onSuccess: this.fetchSuccess } }
     );
 
-  setOtherReddit = (payload) =>
-    this.props.resaga.dispatchTo('OtherAsyncPage', 'fetchReddit', {
+  setOtherReddit = (payload) => {
+    this.setState({ result: false });
+    this.props.resaga.dispatchTo('AsyncPage', 'fetchReddit', {
       payload,
       onSuccess: this.fetchOtherRedditSuccess,
     });
+  };
 
-  fetchOtherRedditSuccess = (result, payload) => {
-    console.log(this.props.id, 'fetchOtherRedditSuccess result, payload', result, payload);
+  fetchOtherRedditSuccess = (result) => {
+    this.setState({ result: result.lastUpdated });
   };
 
   fetchReddit = (redditChannel) => {
-    this.props.resaga.setValue('posts', []);
     const currentChannel = this.props.resaga.getValue('selectedReddit');
     this.props.resaga.dispatch(redditChannel || currentChannel, 'fetchReddit');
+  };
+
+  beforeFetch = (payload) => {
+    this.props.resaga.setValue('posts', []);
+    this.props.resaga.setValue('selectedReddit', payload);
   };
 
   fetchSuccess = ({ posts, lastUpdated }) => {
@@ -42,7 +52,8 @@ export class App extends PureComponent {
   handleRefresh = () => this.fetchReddit();
 
   render() {
-    console.log('render', this.props);
+    const { result } = this.state;
+
     const selectedReddit = this.props.resaga.getValue('selectedReddit');
     const posts = this.props.resaga.getValue('posts') || [];
     const lastUpdated = this.props.resaga.getValue('lastUpdated');
@@ -52,7 +63,11 @@ export class App extends PureComponent {
     const content = isLoading ? <h2>Loading...</h2> : <Posts posts={posts} />;
 
     return (
-      <div>
+      <div style={{ margin: 20, padding: 8, border: '1px solid #999' }}>
+        <a href="#" onClick={() => this.setOtherReddit('frontend')}>Component 1: Set to frontend</a><br />
+        <a href="#" onClick={() => this.setOtherReddit('reactjs')}>Component 1: Set to reactjs</a>
+        <br />{result && `Last updated: ${result}`}
+        <hr />
         <Picker
           value={selectedReddit}
           onChange={this.handleChange}
@@ -62,21 +77,18 @@ export class App extends PureComponent {
           {status} <a href="#" onClick={this.handleRefresh}>Refresh</a>
         </p>
         {content}
-        <br />
-        <b>Set Other Reddit:</b>
-        <br />
-        - <a href="#" onClick={() => this.setOtherReddit('reactjs')}>111 reactjs</a>
-        <br />
-        - <a href="#" onClick={() => this.setOtherReddit('frontend')}>111 frontend</a>
       </div>
     );
   }
 }
 
-App.propTypes = {
-  id: PropTypes.number,
+OtherApp.propTypes = {
   resaga: PropTypes.object,
   dispatch: PropTypes.func,
 };
 
-export default resaga(App, CONFIG);
+OtherApp.defaultProps = {
+  posts: [],
+};
+
+export default resaga(OtherApp, CONFIG);

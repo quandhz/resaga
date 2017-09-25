@@ -1,27 +1,43 @@
 /* eslint-disable jsx-a11y/href-no-hash */
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { CONFIG } from './otherConfig';
+import { CONFIG } from './config';
 import resaga from '../../../../build';
 import Picker from '../components/Picker';
 import Posts from '../components/Posts';
 
 export class App extends PureComponent {
-  componentDidMount = () => this.handleChange('frontend');
+  state = {
+    result: false,
+  };
+
+  componentDidMount = () => this.handleChange('reactjs');
 
   componentWillReceiveProps = (nextProps) =>
     this.props.resaga.analyse(nextProps,
       { fetchReddit: { before: this.beforeFetch, onSuccess: this.fetchSuccess } }
     );
 
-  fetchReddit = (redditChannel) => {
-    const currentChannel = this.props.resaga.getValue('selectedReddit');
-    this.props.resaga.dispatch(redditChannel || currentChannel, 'fetchReddit');
+  setOtherReddit = (payload) => {
+    this.setState({ result: false });
+    this.props.resaga.dispatchTo('OtherAsyncPage', 'fetchReddit', {
+      payload,
+      onSuccess: this.fetchOtherRedditSuccess,
+    });
+  };
+
+  fetchOtherRedditSuccess = (result) => {
+    this.setState({ result: result.lastUpdated });
   };
 
   beforeFetch = (payload) => {
     this.props.resaga.setValue('posts', []);
     this.props.resaga.setValue('selectedReddit', payload);
+  };
+
+  fetchReddit = (redditChannel) => {
+    const currentChannel = this.props.resaga.getValue('selectedReddit');
+    this.props.resaga.dispatch(redditChannel || currentChannel, 'fetchReddit');
   };
 
   fetchSuccess = ({ posts, lastUpdated }) => {
@@ -36,6 +52,8 @@ export class App extends PureComponent {
   handleRefresh = () => this.fetchReddit();
 
   render() {
+    const { result } = this.state;
+
     const selectedReddit = this.props.resaga.getValue('selectedReddit');
     const posts = this.props.resaga.getValue('posts') || [];
     const lastUpdated = this.props.resaga.getValue('lastUpdated');
@@ -45,7 +63,10 @@ export class App extends PureComponent {
     const content = isLoading ? <h2>Loading...</h2> : <Posts posts={posts} />;
 
     return (
-      <div>
+      <div style={{ margin: 20, padding: 8, border: '1px solid #999' }}>
+        <a href="#" onClick={() => this.setOtherReddit('frontend')}>Component 3: Set to frontend</a>
+        <br />{result && `Last updated: ${result}`}
+        <hr />
         <Picker
           value={selectedReddit}
           onChange={this.handleChange}
@@ -65,8 +86,4 @@ App.propTypes = {
   dispatch: PropTypes.func,
 };
 
-App.defaultProps = {
-  posts: [],
-};
-
-export default resaga(App, CONFIG);
+export default resaga(CONFIG)(App);
