@@ -18,7 +18,7 @@ describe('config.js', () => {
       const mockResult = { json: jest.fn() };
       const mockData = 'hi';
       req.fetch = jest.fn(() => mockResult);
-      CONFIG.submit.fetchReddit(mockData);
+      CONFIG.requests.fetchReddit(mockData);
       expect(req.fetch).toBeCalled();
     });
     it('processResult', () => {
