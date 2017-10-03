@@ -110,6 +110,7 @@
     "testPathIgnorePatterns": [
       "<rootDir>/build/",
       "<rootDir>/dist/"
-    ]
+    ],
+    "testRegex": "(/__tests__/.*\\.test.js)$"
   }
 }
