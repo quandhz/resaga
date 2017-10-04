@@ -9,7 +9,7 @@ import resaga, { reducer } from '../../../build';
 
 const PAGE = 'CounterPage';
 const store = configureStore({ [PAGE]: reducer(PAGE) });
-const WrappedCounter = resaga(Counter, { page: PAGE });
+const WrappedCounter = resaga(Counter, { name: PAGE });
 
 render(
   <Provider store={store}><WrappedCounter /></Provider>,

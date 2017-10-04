@@ -8,6 +8,7 @@ export const decreaseIfEven = (value) => value % 2 === 0 ? value - 1 : value;
 
 export class Counter extends PureComponent {
   componentDidMount = () => this.props.resaga.setValue('counter', 0);
+
   render = () => {
     const resaga = this.props.resaga;
     return (<p>
@@ -20,10 +21,10 @@ export class Counter extends PureComponent {
             Set Counter to 100
         </button>
       <br /><br />
-      <button id="increase" onClick={() => resaga.setValue('counter', increase)}>
+      <button id="increase" onClick={() => resaga.setValue('counter', increase, (value) => console.log('increased', value))}>
             Increase
         </button>
-      <button id="decrease" onClick={() => resaga.setValue('counter', decrease)}>
+      <button id="decrease" onClick={() => resaga.setValue('counter', decrease, (value) => console.log('decreased', value))}>
             Decrease
         </button>
       <br /><br />
@@ -32,7 +33,21 @@ export class Counter extends PureComponent {
         </button>
       <button id="decreaseIfEven" onClick={() => resaga.setValue('counter', decreaseIfEven)}>
             Decrease if even
-        </button>
+      </button>
+      <br /><br />
+      <button
+        id="setObjectValue" onClick={() => resaga.setValue({ counter: 50 },
+        ({ counter }) => console.log('setObjectValue', counter))}
+      >
+            Set by object (with value = 50)
+      </button>
+      <button
+        id="setObjectFunc" onClick={() => resaga.setValue(
+          { counter: (x) => x * 2, somethingElse: 'hiii' },
+        ({ counter, somethingElse }) => console.log('setObjectFunc', counter, somethingElse))}
+      >
+            Set by object (with function x2)
+      </button>
     </p>);
   }
 }
