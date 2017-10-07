@@ -87,14 +87,16 @@
   ],
   "keywords": [],
   "dependencies": {
-    "immutable": "^3.8.1",
+    "immutable": "^3.8.2",
+    "lodash.difference": "latest",
     "prop-types": "^15.5.10",
     "react-redux": "^5.0.5",
     "react-router-redux": "^4.0.8",
     "redux": "^3.7.2",
     "redux-mock-store": "^1.2.3",
+    "redux-saga": "^0.15.6",
     "reselect": "^3.0.1",
-    "string.prototype.padend": "^3.0.0", "lodash.difference": "latest"
+    "string.prototype.padend": "^3.0.0"
   },
   "peerDependencies": {
     "redux-saga": "^0.15.6",
