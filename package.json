@@ -93,11 +93,11 @@
     "react-router-redux": "^4.0.8",
     "redux": "^3.7.2",
     "redux-mock-store": "^1.2.3",
-    "redux-saga": "^0.15.6",
     "reselect": "^3.0.1",
     "string.prototype.padend": "^3.0.0", "lodash.difference": "latest"
   },
   "peerDependencies": {
+    "redux-saga": "^0.15.6",
     "react": "^0.14.7 || ^15.0.0-0",
     "react-dom": "^0.14.7 || ^15.0.0-0"
   },
