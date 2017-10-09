@@ -7,7 +7,7 @@
 A reusable Reducer and Saga HOC library
 
 ### Documentation
-https://quandhz.gitbooks.io/resaga
+https://resaga.quandh.com
 
 ### Install
 
