@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/href-no-hash */
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { CONFIG } from './otherConfig';
@@ -14,7 +13,8 @@ export class OtherApp extends PureComponent {
   componentDidMount = () => this.handleChange('frontend');
 
   componentWillReceiveProps = (nextProps) =>
-    this.props.resaga.analyse(nextProps,
+    this.props.resaga.analyse(
+      nextProps,
       { fetchReddit: { before: this.beforeFetch, onSuccess: this.fetchSuccess } }
     );
 
@@ -68,8 +68,8 @@ export class OtherApp extends PureComponent {
 
     return (
       <div style={{ margin: 20, padding: 8, border: '1px solid #999' }}>
-        <a href="#" onClick={() => this.setOtherReddit('frontend')}>Component 1: Set to frontend</a><br />
-        <a href="#" onClick={() => this.setOtherReddit('reactjs')}>Component 1: Set to reactjs</a>
+        <button onClick={() => this.setOtherReddit('frontend')}>Component 1: Set to frontend</button><br />
+        <button onClick={() => this.setOtherReddit('reactjs')}>Component 1: Set to reactjs</button>
         <br />{result && `Last updated: ${result}`}
         <hr />
         <Picker
@@ -78,7 +78,7 @@ export class OtherApp extends PureComponent {
           options={['reactjs', 'frontend']}
         />
         <p>
-          {status} <a href="#" onClick={this.handleRefresh}>Refresh</a>
+          {status} <button onClick={this.handleRefresh}>Refresh</button>
         </p>
         {content}
       </div>
@@ -87,12 +87,10 @@ export class OtherApp extends PureComponent {
 }
 
 OtherApp.propTypes = {
-  resaga: PropTypes.object,
-  dispatch: PropTypes.func,
+  resaga: PropTypes.object.isRequired,
 };
 
 OtherApp.defaultProps = {
-  posts: [],
 };
 
 export default resaga(OtherApp, CONFIG);

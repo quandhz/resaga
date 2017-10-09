@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/href-no-hash */
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { CONFIG } from './config';
@@ -14,7 +13,8 @@ export class App extends PureComponent {
   componentDidMount = () => this.handleChange('reactjs');
 
   componentWillReceiveProps = (nextProps) =>
-    this.props.resaga.analyse(nextProps,
+    this.props.resaga.analyse(
+      nextProps,
       { fetchReddit: { before: this.beforeFetch, onSuccess: this.fetchSuccess } }
     );
 
@@ -64,7 +64,7 @@ export class App extends PureComponent {
 
     return (
       <div style={{ margin: 20, padding: 8, border: '1px solid #999' }}>
-        <a href="#" onClick={() => this.setOtherReddit('frontend')}>Component 3: Set to frontend</a>
+        <button onClick={() => this.setOtherReddit('frontend')}>Component 3: Set to frontend</button>
         <br />{result && `Last updated: ${result}`}
         <hr />
         <Picker
@@ -73,7 +73,7 @@ export class App extends PureComponent {
           options={['reactjs', 'frontend']}
         />
         <p>
-          {status} <a href="#" onClick={this.handleRefresh}>Refresh</a>
+          {status} <button onClick={this.handleRefresh}>Refresh</button>
         </p>
         {content}
       </div>
@@ -82,8 +82,7 @@ export class App extends PureComponent {
 }
 
 App.propTypes = {
-  resaga: PropTypes.object,
-  dispatch: PropTypes.func,
+  resaga: PropTypes.object.isRequired,
 };
 
 export default resaga(CONFIG)(App);
