@@ -22,7 +22,7 @@
     "test:counter": "scripty",
     "examples:async": "scripty",
     "test:async": "scripty",
-    "examples:global": "scripty",
+    "examples:pubsub": "scripty",
     "build:component": "scripty",
     "test": "scripty",
     "test:lint": "scripty",
@@ -93,8 +93,9 @@
     "react-router-redux": "^4.0.8",
     "redux": "^3.7.2",
     "redux-mock-store": "^1.2.3",
-    "redux-saga": "0.14.0",
-    "reselect": "^3.0.1"
+    "redux-saga": "^0.15.6",
+    "reselect": "^3.0.1",
+    "string.prototype.padend": "^3.0.0"
   },
   "peerDependencies": {
     "react": "^0.14.7 || ^15.0.0-0",
@@ -110,6 +111,7 @@
     "testPathIgnorePatterns": [
       "<rootDir>/build/",
       "<rootDir>/dist/"
-    ]
+    ],
+    "testRegex": "(/__tests__/.*\\.test.js)$"
   }
 }
