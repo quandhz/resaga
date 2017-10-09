@@ -14,9 +14,10 @@ export default class Picker extends PureComponent {
           value={value}
         >
           {options.map((option) =>
-            <option value={option} key={option}>
-              {option}
-            </option>)
+            (
+              <option value={option} key={option}>
+                {option}
+              </option>))
           }
         </select>
       </span>
@@ -25,9 +26,7 @@ export default class Picker extends PureComponent {
 }
 
 Picker.propTypes = {
-  options: PropTypes.arrayOf(
-    PropTypes.string
-  ),
+  options: PropTypes.arrayOf(PropTypes.string),
   value: PropTypes.string,
   onChange: PropTypes.func,
 };

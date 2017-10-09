@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/href-no-hash */
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import resaga from '../../../../build';
@@ -24,7 +23,7 @@ export class SimpleApp extends PureComponent {
     const { result } = this.state;
     return (
       <div style={{ margin: 20, padding: 8, border: '1px solid #999' }}>
-        <a href="#" onClick={this.handleClick}>Component 3: Set to reactjs</a>
+        <button onClick={this.handleClick}>Component 3: Set to reactjs</button>
         <br />{result && `Last updated: ${result}`}
       </div>
     );
@@ -32,7 +31,7 @@ export class SimpleApp extends PureComponent {
 }
 
 SimpleApp.propTypes = {
-  resaga: PropTypes.object,
+  resaga: PropTypes.object.isRequired,
 };
 
 export default resaga()(SimpleApp);
