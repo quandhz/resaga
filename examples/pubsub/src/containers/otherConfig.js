@@ -10,7 +10,7 @@ export const CONFIG = {
       lastUpdated: new Date(),
     }),
   },
-  submit: {
+  requests: {
     fetchReddit: async (reddit) => (await req.fetch(`http://www.reddit.com/r/${reddit}.json`)).json(),
   },
 };

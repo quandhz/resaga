@@ -32,8 +32,8 @@ export class App extends PureComponent {
   handleRefresh = () => this.fetchReddit();
 
   render() {
-    const selectedReddit = this.props.resaga.getValue('selectedReddit') || '';
-    const posts = this.props.resaga.getValue('posts') || [];
+    const selectedReddit = this.props.resaga.getValue('selectedReddit', 'reactjs');
+    const posts = this.props.resaga.getValue('posts', []);
     const lastUpdated = this.props.resaga.getValue('lastUpdated');
     const isLoading = this.props.resaga.isLoading('fetchReddit');
 
