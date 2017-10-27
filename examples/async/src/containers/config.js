@@ -13,4 +13,5 @@ export const CONFIG = {
   requests: {
     fetchReddit: async (reddit) => (await req.fetch(`http://www.reddit.com/r/${reddit}.json`)).json(),
   },
+  wrapValue: true,
 };

@@ -10,13 +10,14 @@ export class App extends PureComponent {
   componentDidMount = () => this.handleChange('reactjs');
 
   componentWillReceiveProps = (nextProps) =>
-    this.props.resaga.analyse(nextProps,
+    this.props.resaga.analyse(
+      nextProps,
       { fetchReddit: { onSuccess: this.fetchSuccess } }
     );
 
   fetchReddit = (redditChannel) => {
     this.props.resaga.setValue('posts', []);
-    const currentChannel = this.props.resaga.getValue('selectedReddit');
+    const currentChannel = this.props.resaga.value.selectedReddit;
     this.props.resaga.dispatch(redditChannel || currentChannel, 'fetchReddit');
   };
 
@@ -32,9 +33,7 @@ export class App extends PureComponent {
   handleRefresh = () => this.fetchReddit();
 
   render() {
-    const selectedReddit = this.props.resaga.getValue('selectedReddit', 'reactjs');
-    const posts = this.props.resaga.getValue('posts', []);
-    const lastUpdated = this.props.resaga.getValue('lastUpdated');
+    const { selectedReddit = 'reactjs', posts, lastUpdated } = this.props.resaga.value;
     const isLoading = this.props.resaga.isLoading('fetchReddit');
 
     const status = lastUpdated && <span>Last updated at {new Date(lastUpdated).toLocaleTimeString()}.</span>;
@@ -57,12 +56,10 @@ export class App extends PureComponent {
 }
 
 App.propTypes = {
-  resaga: PropTypes.object,
-  dispatch: PropTypes.func,
+  resaga: PropTypes.object.isRequired,
 };
 
 App.defaultProps = {
-  posts: [],
 };
 
 export default resaga(App, CONFIG);
