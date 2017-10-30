@@ -62,7 +62,7 @@
     "lodash.flow": "^3.5.0",
     "lodash.map": "^4.6.0",
     "lodash.sortby": "^4.7.0",
-    "react": "^15.5.4",
+    "react": "^16.0.0",
     "react-docgen": "^2.15.0",
     "react-dom": "^15.5.4",
     "react-test-renderer": "^15.5.4",
