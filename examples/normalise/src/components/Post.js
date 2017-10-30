@@ -3,14 +3,40 @@ import PropTypes from 'prop-types';
 import resaga from '../../../../build';
 import { PAGE as OTHER_PAGE } from '../containers/config';
 
-const Post = ({ id, title }) => {
-  console.log('Item render', id, title);
-  return <li>{title}</li>;
-};
+// eslint-disable-next-line react/no-redundant-should-component-update
+export class Post extends React.PureComponent {
+  render = () => {
+    const {
+      id, title, selected, onChange,
+    } = this.props;
+    console.log('Item render', id, title);
+
+    return (
+      <li>
+        <label htmlFor={`radio.${id}`}>
+          <input
+            type="radio"
+            value={id}
+            id={`radio.${id}`}
+            checked={selected === id}
+            onChange={onChange(id)}
+          />
+          {title}
+        </label>
+      </li>
+    );
+  };
+}
 
 Post.propTypes = {
   id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  selected: PropTypes.string,
+};
+
+Post.defaultProps = {
+  selected: '',
 };
 
 export default resaga({
