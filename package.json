@@ -80,7 +80,11 @@
     "webpack": "^3.3.0",
     "webpack-dev-middleware": "^1.11.0",
     "webpack-hot-middleware": "^2.18.2",
-    "youemdee": "^1.0.0"
+    "youemdee": "^1.0.0",
+    "redux-mock-store": "^1.2.3",
+    "errno": "^0.1.4",
+    "prop-types": "^15.5.10",
+    "yargs": "^10.0.3"
   },
   "tags": [
     "react",
@@ -93,18 +97,14 @@
   ],
   "keywords": [],
   "dependencies": {
-    "errno": "^0.1.4",
     "immutable": "^3.8.2",
     "lodash.difference": "latest",
-    "prop-types": "^15.5.10",
     "react-redux": "^5.0.5",
     "react-router-redux": "^4.0.8",
     "redux": "^3.7.2",
-    "redux-mock-store": "^1.2.3",
     "redux-saga": "^0.16.0",
     "reselect": "^3.0.1",
-    "string.prototype.padend": "^3.0.0",
-    "yargs": "^10.0.3"
+    "string.prototype.padend": "^3.0.0"
   },
   "peerDependencies": {
     "react": "^0.14.7 || ^15.0.0-0",
