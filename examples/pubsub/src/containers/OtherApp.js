@@ -41,13 +41,10 @@ export class OtherApp extends PureComponent {
   };
 
   fetchSuccess = ({ posts, lastUpdated }) => {
-    this.props.resaga.setValue('posts', posts, this.afterFetch);
-    this.props.resaga.setValue('lastUpdated', lastUpdated, this.afterFetch);
+    this.props.resaga.setValue('posts', posts);
+    this.props.resaga.setValue('lastUpdated', lastUpdated);
   };
 
-  afterFetch = () => {
-    console.log('afterFetch');
-  };
 
   handleChange = (redditChannel) => {
     this.props.resaga.setValue('selectedReddit', redditChannel);
