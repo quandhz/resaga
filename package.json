@@ -23,6 +23,7 @@
     "examples:async": "scripty",
     "test:async": "scripty",
     "examples:pubsub": "scripty",
+    "examples:value": "scripty",
     "build:component": "scripty",
     "test": "scripty",
     "test:lint": "scripty",
