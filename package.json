@@ -71,7 +71,7 @@
     "normalizr": "^3.2.4",
     "prop-types": "^15.5.10",
     "react": "^15.5.4",
-    "react-docgen": "^2.15.0",
+    "react-docgen": "^2.20.0",
     "react-dom": "^15.5.4",
     "react-test-renderer": "^15.5.4",
     "redux-immutable": "^4.0.0",
