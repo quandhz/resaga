@@ -6,7 +6,7 @@ import { PAGE as OTHER_PAGE } from '../containers/config';
 export class PostContent extends React.PureComponent {
   render = () => {
     const { title } = this.props;
-    console.log('PostContent render', title);
+    console.log('PostContent render', `${title.slice(0, 10)}...`);
 
     return <b>{title}</b>;
   };
