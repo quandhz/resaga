@@ -18,7 +18,7 @@ export class Post extends React.PureComponent {
             type="radio"
             value={id}
             id={`radio.${id}`}
-            checked={selected === id}
+            checked={selected}
             onChange={onChange(id)}
           />
           {title}
@@ -32,11 +32,11 @@ Post.propTypes = {
   id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-  selected: PropTypes.string,
+  selected: PropTypes.bool,
 };
 
 Post.defaultProps = {
-  selected: '',
+  selected: false,
 };
 
 export default resaga({

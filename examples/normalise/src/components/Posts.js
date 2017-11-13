@@ -16,7 +16,7 @@ export class Posts extends PureComponent {
     const visiblePostIds = postIds.slice(0, visible);
 
     const list = visiblePostIds.map((id) => (<Post
-      selected={selected}
+      selected={selected === id}
       onChange={this.handleChange}
       key={id}
       id={id}
