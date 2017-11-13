@@ -7,6 +7,7 @@ export class Post extends React.PureComponent {
   render = () => {
     const {
       id, title, selected, onChange,
+      counter, index,
     } = this.props;
     console.log('Item render', id, `${title.slice(0, 10)}...`);
 
@@ -20,7 +21,7 @@ export class Post extends React.PureComponent {
             checked={selected}
             onChange={onChange(id)}
           />
-          {title}
+          [{counter + index}] {title}
         </label>
       </li>
     );
@@ -32,10 +33,14 @@ Post.propTypes = {
   title: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   selected: PropTypes.bool,
+  counter: PropTypes.number,
+  index: PropTypes.number,
 };
 
 Post.defaultProps = {
   selected: false,
+  counter: 1,
+  index: 1,
 };
 
 export default resaga({
@@ -44,6 +49,7 @@ export default resaga({
       keyPath: [OTHER_PAGE, 'posts'],
       getter: (posts, props) => posts[props.id].title,
     },
+    counter: [OTHER_PAGE, 'counter'],
   },
 })(Post);
 

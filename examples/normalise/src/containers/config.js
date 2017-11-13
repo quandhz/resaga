@@ -18,6 +18,7 @@ export const CONFIG = {
         posts: posts.entities.postContent,
         postIds: posts.result,
         lastUpdated: new Date(),
+        counter: 1,
       });
     },
   },

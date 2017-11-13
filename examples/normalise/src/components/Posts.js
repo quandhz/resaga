@@ -14,7 +14,6 @@ export class Posts extends PureComponent {
     const { postIds, visible } = this.props;
     const { selected } = this.state;
 
-
     return (
       <div>
         <PostList
@@ -39,6 +38,7 @@ Posts.propTypes = {
 Posts.defaultProps = {
   postIds: [],
   visible: 2,
+  counter: 1,
 };
 
 export default Posts;

@@ -11,7 +11,8 @@ export class PostList extends React.PureComponent {
     console.log('PostList render');
     const visiblePostIds = postIds.slice(0, visible);
 
-    const list = visiblePostIds.map((id) => (<Post
+    const list = visiblePostIds.map((id, index) => (<Post
+      index={index}
       selected={selected === id}
       onChange={onChange}
       key={id}
