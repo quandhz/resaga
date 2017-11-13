@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import Post from './Post';
+import PostList from './PostList';
 import PostContent from './PostContent';
 
 export class Posts extends PureComponent {
@@ -13,17 +13,16 @@ export class Posts extends PureComponent {
   render = () => {
     const { postIds, visible } = this.props;
     const { selected } = this.state;
-    const visiblePostIds = postIds.slice(0, visible);
 
-    const list = visiblePostIds.map((id) => (<Post
-      selected={selected === id}
-      onChange={this.handleChange}
-      key={id}
-      id={id}
-    />));
+
     return (
       <div>
-        <ul>{list}</ul>
+        <PostList
+          postIds={postIds}
+          visible={visible}
+          selected={selected}
+          onChange={this.handleChange}
+        />
         <hr />
         Selected Article:
         {selected && <PostContent selected={selected} />}
