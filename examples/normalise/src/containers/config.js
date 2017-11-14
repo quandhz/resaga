@@ -25,11 +25,12 @@ export const CONFIG = {
   requests: {
     fetchReddit: async (reddit) => (await req.fetch(`http://www.reddit.com/r/${reddit}.json`)).json(),
   },
-  manuallySubscribe: true,
   value: {
     postIds: [PAGE, 'postIds'],
     lastUpdated: [PAGE, 'lastUpdated'],
     selectedReddit: [PAGE, 'selectedReddit'],
     visible: [PAGE, 'visible'],
   },
+  manuallySubscribe: true,
+  optimiseComparison: true,
 };
