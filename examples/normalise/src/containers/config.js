@@ -14,15 +14,22 @@ export const CONFIG = {
     fetchReddit: (result) => {
       const originPosts = result.data.children.map((child) => child.data).slice(0, 5);
       const posts = normalize(originPosts, postSchema);
-      return ({
+      return {
         posts: posts.entities.postContent,
         postIds: posts.result,
         lastUpdated: new Date(),
         counter: 1,
-      });
+      };
     },
   },
   requests: {
     fetchReddit: async (reddit) => (await req.fetch(`http://www.reddit.com/r/${reddit}.json`)).json(),
+  },
+  manuallySubscribe: true,
+  value: {
+    postIds: [PAGE, 'postIds'],
+    lastUpdated: [PAGE, 'lastUpdated'],
+    selectedReddit: [PAGE, 'selectedReddit'],
+    visible: [PAGE, 'visible'],
   },
 };

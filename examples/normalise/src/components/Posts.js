@@ -38,7 +38,6 @@ Posts.propTypes = {
 Posts.defaultProps = {
   postIds: [],
   visible: 2,
-  counter: 1,
 };
 
 export default Posts;
