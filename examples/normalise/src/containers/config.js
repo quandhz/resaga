@@ -25,12 +25,19 @@ export const CONFIG = {
   requests: {
     fetchReddit: async (reddit) => (await req.fetch(`http://www.reddit.com/r/${reddit}.json`)).json(),
   },
-  value: {
-    postIds: [PAGE, 'postIds'],
-    lastUpdated: [PAGE, 'lastUpdated'],
-    selectedReddit: [PAGE, 'selectedReddit'],
-    visible: [PAGE, 'visible'],
+  setValue: {
+    selectedReddit: ['selectStore', 'selectedReddit'],
+    lastUpdated: ['updateStore', 'lastUpdated'],
+    postIds: ['normaliseStore', 'postIds'],
+    posts: ['normaliseStore', 'posts'],
   },
-  manuallySubscribe: true,
-  optimiseComparison: true,
+  value: {
+    selectedReddit: ['selectStore', 'selectedReddit'],
+    lastUpdated: ['updateStore', 'lastUpdated'],
+    postIds: ['normaliseStore', 'postIds'],
+    posts: ['normaliseStore', 'posts'],
+    hi: ['hiStore', 'hi'],
+  },
+  // manuallySubscribe: true,
+  // optimiseComparison: true,
 };

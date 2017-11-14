@@ -1,4 +1,5 @@
 import 'babel-polyfill';
+import { fromJS } from 'immutable';
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
@@ -9,6 +10,9 @@ import { reducer, sagas } from '../../../build';
 
 const store = configureStore({
   [PAGE]: reducer(PAGE),
+  selectStore: reducer('selectStore'),
+  updateStore: reducer('updateStore'),
+  normaliseStore: reducer('normaliseStore'),
 });
 store.runSaga(sagas[0]);
 

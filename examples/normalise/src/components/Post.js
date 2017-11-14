@@ -46,7 +46,7 @@ Post.defaultProps = {
 export default resaga({
   value: {
     title: {
-      keyPath: [OTHER_PAGE, 'posts'],
+      keyPath: ['normaliseStore', 'posts'],
       getter: (posts, props) => posts[props.id].title,
     },
     counter: [OTHER_PAGE, 'counter'],

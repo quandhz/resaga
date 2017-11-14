@@ -69,12 +69,12 @@ PostContent.defaultProps = {
 export default resaga({
   setValue: {
     visibility: [OTHER_PAGE, 'visible'],
-    posts: [OTHER_PAGE, 'posts'],
+    posts: ['normaliseStore', 'posts'],
     counter: [OTHER_PAGE, 'counter'],
   },
   value: {
     title: {
-      keyPath: [OTHER_PAGE, 'posts'],
+      keyPath: ['normaliseStore', 'posts'],
       getter: (posts, props) => posts[props.selected] ? posts[props.selected].title : 'n/a',
     },
     counter: [OTHER_PAGE, 'counter'],
