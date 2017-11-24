@@ -23,7 +23,6 @@ const editPost = (index = 0) => (posts) => {
 export class App extends PureComponent {
   componentDidMount = () => {
     this.fetchReddit('reactjs');
-    this.handleVisible(2)();
   };
 
   componentWillReceiveProps = (nextProps) =>
@@ -56,7 +55,7 @@ export class App extends PureComponent {
 
   handleVisible = (isShowingMore) => () => {
     this.props.resaga.setValue({
-      visible: (value = 2) => {
+      visible: (value = 5) => {
         const newValue = isShowingMore ? value + 1 : value - 1;
         if (newValue > 5) return 5;
         if (newValue < 0) return 0;
@@ -71,7 +70,6 @@ export class App extends PureComponent {
     } = this.props;
 
     const status = lastUpdated && <span>Last updated at {new Date(lastUpdated).toLocaleTimeString()}.</span>;
-    const content = <Posts visible={visible} postIds={postIds} />;
 
     return (
       <div>
@@ -94,7 +92,7 @@ export class App extends PureComponent {
           {visible < 5 && <a href="#" onClick={this.handleVisible(true)}>Show more</a>}
         </p>
         <hr />
-        {content}
+        <Posts visible={visible} postIds={postIds} />
       </div>
     );
   }
@@ -110,9 +108,9 @@ App.propTypes = {
 
 App.defaultProps = {
   selectedReddit: 'reactjs',
-  lastUpdated: null,
+  lastUpdated: new Date(),
   postIds: [],
-  visible: 2,
+  visible: 3,
 };
 
 export default resaga(App, CONFIG);
