@@ -23,7 +23,6 @@ const editPost = (index = 0) => (posts) => {
 export class App extends PureComponent {
   componentDidMount = () => {
     this.fetchReddit('reactjs');
-    this.handleVisible(2)();
   };
 
   componentWillReceiveProps = (nextProps) =>
@@ -109,9 +108,9 @@ App.propTypes = {
 
 App.defaultProps = {
   selectedReddit: 'reactjs',
-  lastUpdated: null,
+  lastUpdated: new Date(),
   postIds: [],
-  visible: 2,
+  visible: 3,
 };
 
 export default resaga(App, CONFIG);

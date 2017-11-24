@@ -18,7 +18,8 @@ export class PostContent extends React.PureComponent {
     this.props.resaga.setValue({ visibility });
 
   increaseVisible = () =>
-    this.props.resaga.setValue({ visibility: (value) => value + 1 }, console.log);
+    this.props.resaga.setValue({ hi: 1 }, console.log);
+    // this.props.resaga.setValue({ visibility: (value) => value + 1 }, console.log);
 
   decreaseVisible = () =>
     this.props.resaga.setValue({ visibility: (value) => value - 1 }, console.log);
@@ -36,7 +37,9 @@ export class PostContent extends React.PureComponent {
   };
 
   render = () => {
-    const { title, selected, counter } = this.props;
+    const {
+      title, selected, counter,
+    } = this.props;
     console.log('PostContent render', `${title.slice(0, 10)}...`);
 
     return (
@@ -64,20 +67,27 @@ PostContent.propTypes = {
 
 PostContent.defaultProps = {
   counter: 1,
+  isCounterOdd: false,
 };
 
 export default resaga({
   setValue: {
     visibility: [OTHER_PAGE, 'visible'],
     posts: ['normaliseStore', 'posts'],
+    hi: ['normaliseStore', 'hi'],
     counter: [OTHER_PAGE, 'counter'],
   },
   value: {
+    hi: ['normaliseStore', 'hi'],
     title: {
       keyPath: ['normaliseStore', 'posts'],
       getter: (posts, props) => posts[props.selected] ? posts[props.selected].title : 'n/a',
     },
-    counter: [OTHER_PAGE, 'counter'],
+    counter: {
+      keyPath: [OTHER_PAGE, 'counter'],
+      getter: (counter) => ({ counter, isCounterOdd: !!(counter % 2) }),
+      spreadObject: true,
+    },
   },
 })(PostContent);
 
