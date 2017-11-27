@@ -52,7 +52,7 @@
     "color-convert": "^1.9.1",
     "enzyme": "^2.8.2",
     "errno": "^0.1.4",
-    "eslint": "^4.11.0",
+    "eslint": "^4.12.0",
     "eslint-config-airbnb": "^16.0.0",
     "eslint-config-airbnb-base": "^12.0.2",
     "eslint-import-resolver-webpack": "^0.8.3",
@@ -98,6 +98,7 @@
   "keywords": [],
   "dependencies": {
     "immutable": "^3.8.2",
+    "lodash": "latest",
     "lodash.difference": "latest",
     "re-reselect": "^1.0.1",
     "react-redux": "^5.0.5",
@@ -105,8 +106,7 @@
     "redux": "^3.7.2",
     "redux-saga": "^0.16.0",
     "reselect": "^3.0.1",
-    "string.prototype.padend": "^3.0.0",
-    "lodash": "latest"
+    "string.prototype.padend": "^3.0.0"
   },
   "peerDependencies": {
     "react": "^0.14.7 || ^15.0.0-0",
