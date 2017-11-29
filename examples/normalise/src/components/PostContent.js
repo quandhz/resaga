@@ -67,7 +67,6 @@ PostContent.propTypes = {
 
 PostContent.defaultProps = {
   counter: 1,
-  isCounterOdd: false,
 };
 
 export default resaga({

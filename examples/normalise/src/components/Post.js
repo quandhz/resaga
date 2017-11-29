@@ -30,7 +30,7 @@ export class Post extends React.PureComponent {
 
 Post.propTypes = {
   id: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   selected: PropTypes.bool,
   counter: PropTypes.number,
@@ -41,14 +41,12 @@ Post.defaultProps = {
   selected: false,
   counter: 1,
   index: 1,
+  title: '',
 };
 
 export default resaga({
   value: {
-    title: {
-      keyPath: ['normaliseStore', 'posts'],
-      getter: (posts, props) => posts[props.id].title,
-    },
+    title: ({ id }) => ['normaliseStore', 'posts', id, 'title'],
     counter: [OTHER_PAGE, 'counter'],
   },
 })(Post);
