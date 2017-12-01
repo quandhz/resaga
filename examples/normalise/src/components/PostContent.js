@@ -40,6 +40,7 @@ export class PostContent extends React.PureComponent {
     const {
       title, selected, counter,
     } = this.props;
+    console.log('this.props', this.props);
     console.log('PostContent render', `${title.slice(0, 10)}...`);
 
     return (
@@ -84,9 +85,10 @@ export default resaga({
     },
     counter: {
       keyPath: [OTHER_PAGE, 'counter'],
-      getter: (counter) => ({ counter, isCounterOdd: !!(counter % 2) }),
+      getter: (counter) => ({ counter, isCounterOdd: counter % 2 === 1 }),
       spreadObject: true,
     },
+    counterFunc: () => [OTHER_PAGE, 'counter'],
   },
 })(PostContent);
 
