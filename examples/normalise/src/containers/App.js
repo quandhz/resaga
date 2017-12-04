@@ -68,6 +68,8 @@ export class App extends PureComponent {
     const {
       selectedReddit = 'reactjs', lastUpdated, visible, postIds,
     } = this.props;
+    const posts = this.props.resaga.getValue('postIds');
+    console.log('posts', posts);
 
     const status = lastUpdated && <span>Last updated at {new Date(lastUpdated).toLocaleTimeString()}.</span>;
 
