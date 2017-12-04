@@ -82,7 +82,7 @@
     "watchify": "^3.8.0",
     "webpack": "^3.3.0",
     "webpack-dev-middleware": "^1.12.1",
-    "webpack-hot-middleware": "^2.18.2",
+    "webpack-hot-middleware": "^2.21.0",
     "yargs": "^10.0.3",
     "youemdee": "^1.0.0"
   },
