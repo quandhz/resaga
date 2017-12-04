@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import resaga from '../../../../build';
 import { PAGE as OTHER_PAGE } from '../containers/config';
 
-
 const editPost = (selected) => (posts) => {
   const first = posts[selected];
   return {
@@ -18,8 +17,8 @@ export class PostContent extends React.PureComponent {
     this.props.resaga.setValue({ visibility });
 
   increaseVisible = () =>
-    this.props.resaga.setValue({ hi: 1 }, console.log);
-    // this.props.resaga.setValue({ visibility: (value) => value + 1 }, console.log);
+    // this.props.resaga.setValue({ hi: 1 }, console.log);
+    this.props.resaga.setValue({ visibility: (value) => value + 1 }, console.log);
 
   decreaseVisible = () =>
     this.props.resaga.setValue({ visibility: (value) => value - 1 }, console.log);
@@ -38,10 +37,10 @@ export class PostContent extends React.PureComponent {
 
   render = () => {
     const {
-      title, selected, counter,
+      title, selected, counter, titleHi,
     } = this.props;
     console.log('PostContent render', `${title.slice(0, 10)}...`);
-
+    console.log('titleHi', titleHi);
     return (
       <div>
         <b>{title}</b> <br />
@@ -60,14 +59,14 @@ export class PostContent extends React.PureComponent {
 
 PostContent.propTypes = {
   resaga: PropTypes.object.isRequired,
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   selected: PropTypes.string.isRequired,
   counter: PropTypes.number,
 };
 
 PostContent.defaultProps = {
   counter: 1,
-  isCounterOdd: false,
+  title: '',
 };
 
 export default resaga({
@@ -78,15 +77,17 @@ export default resaga({
     counter: [OTHER_PAGE, 'counter'],
   },
   value: {
-    hi: ['normaliseStore', 'hi'],
-    title: {
-      keyPath: ['normaliseStore', 'posts'],
-      getter: (posts, props) => posts[props.selected] ? posts[props.selected].title : 'n/a',
-    },
+    hi: [
+      ['normaliseStore', 'hi'],
+    ],
+    title: ({ selected }) => ['normaliseStore', 'posts', selected, 'title'],
     counter: {
       keyPath: [OTHER_PAGE, 'counter'],
-      getter: (counter) => ({ counter, isCounterOdd: !!(counter % 2) }),
+      getter: (counter) => ({ counter, isCounterOdd: counter % 2 === 1 }),
       spreadObject: true,
+    },
+    titleHi: {
+      getter: ({ title, hi }) => `${title}_${hi}`,
     },
   },
 })(PostContent);

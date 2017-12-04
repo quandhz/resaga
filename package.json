@@ -118,11 +118,17 @@
     "collectCoverage": true,
     "modulePathIgnorePatterns": [
       "<rootDir>/build/",
-      "<rootDir>/dist/"
+      "<rootDir>/dist/",
+      "<rootDir>/lib/internal/debugs/"
     ],
     "testPathIgnorePatterns": [
       "<rootDir>/build/",
-      "<rootDir>/dist/"
+      "<rootDir>/dist/",
+      "<rootDir>/lib/internal/debugs/"
+    ],
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/lib/internal/debugs/",
+      "<rootDir>/lib/debug.js"
     ],
     "testRegex": "(/__tests__/.*\\.test.js)$"
   }
