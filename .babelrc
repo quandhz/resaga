@@ -1,5 +1,9 @@
 {
   "presets": ["es2015", "stage-0", "react"],
+  "ignore": [
+    "__tests__/*",
+    "**/*.test.js"
+  ],
   "env": {
     "development": {
       "presets": ["react-hmre"]
