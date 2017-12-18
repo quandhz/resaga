@@ -81,7 +81,7 @@
     "uglify-js": "^3.2.1",
     "watchify": "^3.8.0",
     "webpack": "^3.10.0",
-    "webpack-dev-middleware": "^1.12.2",
+    "webpack-dev-middleware": "^2.0.1",
     "webpack-hot-middleware": "^2.21.0",
     "yargs": "^10.0.3",
     "youemdee": "^1.0.0"
