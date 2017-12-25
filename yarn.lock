@@ -603,13 +603,6 @@ babel-helpers@^6.24.1:
     babel-runtime "^6.22.0"
     babel-template "^6.24.1"
 
-babel-jest@^22.0.1:
-  version "22.0.1"
-  resolved "https://registry.yarnpkg.com/babel-jest/-/babel-jest-22.0.1.tgz#4232ded3a11ff8cad2d4417c5f75eaecdb2a73a5"
-  dependencies:
-    babel-plugin-istanbul "^4.1.5"
-    babel-preset-jest "^22.0.1"
-
 babel-jest@^22.0.3:
   version "22.0.3"
   resolved "https://registry.yarnpkg.com/babel-jest/-/babel-jest-22.0.3.tgz#c9d7a786c57ee94cee15b5826468fd55f69d4b4c"
@@ -644,10 +637,6 @@ babel-plugin-istanbul@^4.1.5:
     find-up "^2.1.0"
     istanbul-lib-instrument "^1.7.5"
     test-exclude "^4.1.1"
-
-babel-plugin-jest-hoist@^22.0.1:
-  version "22.0.1"
-  resolved "https://registry.yarnpkg.com/babel-plugin-jest-hoist/-/babel-plugin-jest-hoist-22.0.1.tgz#e5a65a213158d6c523686c542124591e29a35d47"
 
 babel-plugin-jest-hoist@^22.0.3:
   version "22.0.3"
@@ -1052,13 +1041,6 @@ babel-preset-flow@^6.23.0:
   resolved "https://registry.yarnpkg.com/babel-preset-flow/-/babel-preset-flow-6.23.0.tgz#e71218887085ae9a24b5be4169affb599816c49d"
   dependencies:
     babel-plugin-transform-flow-strip-types "^6.22.0"
-
-babel-preset-jest@^22.0.1:
-  version "22.0.1"
-  resolved "https://registry.yarnpkg.com/babel-preset-jest/-/babel-preset-jest-22.0.1.tgz#e94c3f8d701502d233da6c63925cb6d938d3771f"
-  dependencies:
-    babel-plugin-jest-hoist "^22.0.1"
-    babel-plugin-syntax-object-rest-spread "^6.13.0"
 
 babel-preset-jest@^22.0.3:
   version "22.0.3"
@@ -5892,9 +5874,9 @@ uglify-js@^2.6, uglify-js@^2.8.29:
   optionalDependencies:
     uglify-to-browserify "~1.0.0"
 
-uglify-js@^3.2.1:
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.2.1.tgz#d6427fd45a25fefc5d196689c0c772a6915e10fe"
+uglify-js@^3.3.1:
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.3.1.tgz#bed6f6a2e2b3f1a73dfe000f04d47ee540dd080b"
   dependencies:
     commander "~2.12.1"
     source-map "~0.6.1"
