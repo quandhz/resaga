@@ -83,7 +83,7 @@
     "webpack": "^3.10.0",
     "webpack-dev-middleware": "^2.0.4",
     "webpack-hot-middleware": "^2.21.0",
-    "yargs": "^10.0.3",
+    "yargs": "^11.0.0",
     "youemdee": "^1.0.0"
   },
   "tags": [
