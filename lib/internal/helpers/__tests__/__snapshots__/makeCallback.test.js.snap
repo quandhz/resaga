@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`makeCallback() should throw error for invalid callback 1`] = `[SyntaxError: Invalid redux action. Received: ]`;

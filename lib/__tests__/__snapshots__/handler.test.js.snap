@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Handlers setErrorHandler should throw error 1`] = `[SyntaxError: resaga expects handler to be a function (i.e. const handler = (error, payload) => {...}). Received: ]`;
+
+exports[`Test Handlers setResultHandler should throw error 1`] = `[SyntaxError: resaga expects handler to be a function (i.e. const handler = (error, payload) => {...}). Received: ]`;
