@@ -78,7 +78,7 @@
     "redux-mock-store": "^1.5.1",
     "scripty": "^1.7.1",
     "st": "^1.2.0",
-    "uglify-js": "^3.3.8",
+    "uglify-js": "^3.3.9",
     "watchify": "^3.10.0",
     "webpack": "^3.10.0",
     "webpack-dev-middleware": "^2.0.4",
