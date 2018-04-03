@@ -109,9 +109,9 @@
     "string.prototype.padend": "^3.0.0"
   },
   "peerDependencies": {
-    "react": "^0.14.7 || ^15.0.0-0",
-    "react-dom": "^0.14.7 || ^15.0.0-0",
-    "redux-saga": "^0.15.6"
+    "react": "^0.14.7 || ^15.0.0-0 || ^16.0.0-0",
+    "react-dom": "^0.14.7 || ^15.0.0-0 || ^16.0.0-0",
+    "redux-saga": "^0.15.6 || ^0.16.0"
   },
   "jest": {
     "coverageDirectory": "./coverage/",
