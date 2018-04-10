@@ -73,7 +73,7 @@
     "react": "^15.5.4",
     "react-docgen": "^2.20.1",
     "react-dom": "^15.5.4",
-    "react-test-renderer": "^15.5.4",
+    "react-test-renderer": "^16.3.1",
     "redux-immutable": "^4.0.0",
     "redux-mock-store": "^1.5.1",
     "scripty": "^1.7.1",
