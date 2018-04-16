@@ -100,7 +100,7 @@
     "immutable": "^3.8.2",
     "lodash": "latest",
     "lodash.difference": "latest",
-    "re-reselect": "^1.0.1",
+    "re-reselect": "^2.0.0",
     "react-redux": "^5.0.7",
     "react-router-redux": "^4.0.8",
     "redux": "^3.7.2",
