@@ -70,7 +70,7 @@
     "lodash.sortby": "^4.7.0",
     "normalizr": "^3.2.4",
     "prop-types": "^15.5.10",
-    "react": "^15.5.4",
+    "react": "^16.3.2",
     "react-docgen": "^2.20.1",
     "react-dom": "^15.5.4",
     "react-test-renderer": "^15.5.4",
