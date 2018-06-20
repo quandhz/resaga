@@ -30,6 +30,8 @@ export const CONFIG = {
     lastUpdated: ['updateStore', 'lastUpdated'],
     postIds: ['normaliseStore', 'postIds'],
     posts: ['normaliseStore', 'posts'],
+    post: (ownProps, { id }) => ['normaliseStore', 'posts', id],
+    postTitle: (ownProps, { id }) => ['normaliseStore', 'posts', id, 'title'],
   },
   value: {
     selectedReddit: ['selectStore', 'selectedReddit'],

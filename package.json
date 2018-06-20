@@ -18,6 +18,7 @@
     "release": "scripty",
     "build": "scripty",
     "examples": "scripty",
+    "examples:counter-1": "scripty",
     "examples:counter": "scripty",
     "test:counter": "scripty",
     "examples:async": "scripty",
@@ -97,6 +98,7 @@
   ],
   "keywords": [],
   "dependencies": {
+    "dot-prop-immutable": "^1.4.0",
     "immutable": "^3.8.2",
     "lodash": "latest",
     "lodash.difference": "latest",

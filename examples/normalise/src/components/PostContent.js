@@ -3,14 +3,6 @@ import PropTypes from 'prop-types';
 import resaga from '../../../../build';
 import { PAGE as OTHER_PAGE } from '../containers/config';
 
-const editPost = (selected) => (posts) => {
-  const first = posts[selected];
-  return {
-    ...posts,
-    [selected]: { title: `${first.title} (1)` },
-  };
-};
-
 
 export class PostContent extends React.PureComponent {
   setVisible = (visibility) => () =>
@@ -29,10 +21,11 @@ export class PostContent extends React.PureComponent {
   decreaseCounter = () =>
     this.props.resaga.setValue({ counter: (value) => value - 1 }, console.log);
 
-  handleEdit = (index) => () => {
+  handleEdit = (id) => () => {
+    console.log('handleEdit', id);
     this.props.resaga.setValue({
-      posts: editPost(index),
-    });
+      postTitle: (title) => `${title} (1)`,
+    }, { id });
   };
 
   render = () => {
@@ -75,6 +68,7 @@ export default resaga({
     posts: ['normaliseStore', 'posts'],
     hi: ['normaliseStore', 'hi'],
     counter: [OTHER_PAGE, 'counter'],
+    postTitle: (ownProps, { id }) => ['normaliseStore', 'posts', id, 'title'],
   },
   value: {
     hi: [

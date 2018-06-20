@@ -10,8 +10,18 @@ import resaga, { reducer } from '../../../build';
 const PAGE = 'CounterPage';
 const store = configureStore({ [PAGE]: reducer(PAGE) });
 
+const counter = [PAGE, 'defaultView', 'something', 'inside', 'hidden', 'counter'];
+const hello = [PAGE, 'defaultView', 'something', 'inside', 'hello'];
+
 const WrappedCounter = resaga(Counter, {
-  name: PAGE,
+  value: {
+    counter,
+    hello,
+  },
+  setValue: {
+    counter,
+    hello,
+  },
 });
 
 render(
