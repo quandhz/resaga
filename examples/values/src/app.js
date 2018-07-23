@@ -4,20 +4,16 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import configureStore from './utils/configureStore';
 import App from './containers/App';
-import { PAGE } from './containers/config';
 import { reducer, sagas } from '../../../build';
 
 const store = configureStore({
-  [PAGE]: reducer(PAGE),
-  selectStore: reducer('selectStore'),
-  updateStore: reducer('updateStore'),
   normaliseStore: reducer('normaliseStore'),
 });
 store.runSaga(sagas[0]);
 
 render(
   <Provider store={store}>
-    <App />
+    <App id={12} childId={11} ids={[11, 12, 13]} extras1={[99]} extras2={[100]} updateId={1} updateChecklist={12} />
   </Provider>,
   document.getElementById('root')
 );
