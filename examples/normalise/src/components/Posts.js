@@ -15,7 +15,7 @@ export class Posts extends PureComponent {
   render = () => {
     const {
       postIds, postTitles, visible,
-      node1,
+      node1Posts,
     } = this.props;
     const { selected } = this.state;
 
@@ -31,7 +31,7 @@ export class Posts extends PureComponent {
         <hr />
         Selected Article:
         {selected && <PostContent selected={selected} />}
-        <h2>Posts {node1}</h2>
+        <h2>Posts {node1Posts}</h2>
       </div>
     );
   };
@@ -63,7 +63,7 @@ const CONFIG = {
     },
 
 
-    node1: 'content_title',
+    node1Posts: 'content_title',
   },
 };
 

@@ -25,6 +25,7 @@
     "test:async": "scripty",
     "examples:pubsub": "scripty",
     "examples:normalise": "scripty",
+    "examples:values": "scripty",
     "build:component": "scripty",
     "test": "scripty",
     "test:lint": "scripty",

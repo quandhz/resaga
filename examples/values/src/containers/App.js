@@ -36,9 +36,11 @@ export class App extends PureComponent {
   };
 
   changeContent = () => this.props.resaga.setValue({ content: (content) => `${content} *` });
-  resetContent = () => this.props.resaga.setValue({ content: nodeStore.nodes[1].content });
+
+  resetContent = () => this.props.resaga.setValue({ content: nodeStore.nodes[12].content });
 
   addChecklists = () => this.props.resaga.setValue({ checklists: (checklists = []) => checklists.concat(checklists.length) });
+
   resetChecklists = () => this.props.resaga.setValue({ checklists: [121, 122, 123] });
 
   renderMatches = (condition) => {
@@ -56,11 +58,15 @@ export class App extends PureComponent {
       nodeIdChecklists,
       idsChecklists,
       nodeIdContentGetter,
+      nodeIdContentGetterExtras,
+      nodeIdContentGetterOnly,
       nodeIdChildIdChecklists,
       idsChecklistsExtras,
       nodeIdChecklistsCount,
       nodeIdChildIdCount,
       idsCount,
+      idsCountExtra,
+      idsCountExtras,
     } = this.props;
 
     return (
@@ -91,6 +97,18 @@ export class App extends PureComponent {
             <td>Content: Lost in Mexico</td>
             <td>{nodeIdContentGetter}</td>
             <td>{this.renderMatches(nodeIdContentGetter === 'Content: Lost in Mexico')}</td>
+          </tr>
+          <tr>
+            <td>Node :id content with all props</td>
+            <td>Content: Lost in Mexico - ChildId 11</td>
+            <td>{nodeIdContentGetterExtras}</td>
+            <td>{this.renderMatches(nodeIdContentGetterExtras === 'Content: Lost in Mexico - ChildId 11')}</td>
+          </tr>
+          <tr>
+            <td>nodeIdContentGetter with getter</td>
+            <td>Content: Lost in Mexico (*getter)</td>
+            <td>{nodeIdContentGetterOnly}</td>
+            <td>{this.renderMatches(nodeIdContentGetterOnly === 'Content: Lost in Mexico (*getter)')}</td>
           </tr>
           <tr>
             <td>Node 1 checklists</td>
@@ -140,6 +158,18 @@ export class App extends PureComponent {
             <td>{idsCount}</td>
             <td>{this.renderMatches(idsCount === 9)}</td>
           </tr>
+          <tr>
+            <td>Node :ids count Extra</td>
+            <td>{21}</td>
+            <td>{idsCountExtra}</td>
+            <td>{this.renderMatches(idsCountExtra === 21)}</td>
+          </tr>
+          <tr>
+            <td>Node :ids count Extras</td>
+            <td>{32}</td>
+            <td>{idsCountExtras}</td>
+            <td>{this.renderMatches(idsCountExtras === 32)}</td>
+          </tr>
         </tbody>
       </table>
     );
@@ -181,7 +211,7 @@ export class App extends PureComponent {
         </div>
       </div>
     );
-  }
+  };
 
   render = () => (
     <div>
@@ -209,6 +239,8 @@ App.propTypes = {
   node1Content: PropTypes.string,
   nodeIdContent: PropTypes.string,
   nodeIdContentGetter: PropTypes.string,
+  nodeIdContentGetterExtras: PropTypes.string,
+  nodeIdContentGetterOnly: PropTypes.string,
   checklists: PropTypes.array,
   node1Checklists: PropTypes.array,
   nodeIdChecklists: PropTypes.array,
@@ -218,6 +250,8 @@ App.propTypes = {
   nodeIdChecklistsCount: PropTypes.number,
   nodeIdChildIdCount: PropTypes.number,
   idsCount: PropTypes.number,
+  idsCountExtra: PropTypes.number,
+  idsCountExtras: PropTypes.number,
 };
 
 App.defaultProps = {
@@ -225,6 +259,8 @@ App.defaultProps = {
   node1Content: '',
   nodeIdContent: '',
   nodeIdContentGetter: '',
+  nodeIdContentGetterExtras: '',
+  nodeIdContentGetterOnly: '',
   checklists: [],
   node1Checklists: [],
   nodeIdChecklists: [],
@@ -234,6 +270,8 @@ App.defaultProps = {
   nodeIdChecklistsCount: 0,
   nodeIdChildIdCount: 0,
   idsCount: 0,
+  idsCountExtra: 0,
+  idsCountExtras: 0,
 };
 
 export default resaga(App, CONFIG);
