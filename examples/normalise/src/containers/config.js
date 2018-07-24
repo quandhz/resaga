@@ -6,6 +6,23 @@ export const postContent = new schema.Entity('postContent', {}, {
 });
 export const postSchema = [postContent];
 
+export const BLOCK_THREAD = (sleepDuration) => {
+  const now = new Date().getTime();
+  while (new Date().getTime() < now + sleepDuration) { /* do nothing */ }
+};
+
+export const CONTENT_TITLE_SELECTOR = {
+  cacheKey: 'content_title',
+  keyPath: ['normaliseStore', 'nodes', 1, 'content'],
+  props: () => null,
+  getter: (content) => {
+    console.log('  > Slowly calculating content_title.....');
+    // BLOCK_THREAD(1000);
+    console.log('  > Computing finish');
+    return `Node Content: ${content}`;
+  },
+};
+
 export const PAGE = 'AsyncPage';
 export const req = { fetch };
 export const CONFIG = {
@@ -32,14 +49,31 @@ export const CONFIG = {
     posts: ['normaliseStore', 'posts'],
     post: (ownProps, { id }) => ['normaliseStore', 'posts', id],
     postTitle: (ownProps, { id }) => ['normaliseStore', 'posts', id, 'title'],
+    nodes: ['normaliseStore', 'nodes'],
+    content: ['normaliseStore', 'nodes', 1, 'content'],
   },
   value: {
-    selectedReddit: ['selectStore', 'selectedReddit'],
-    lastUpdated: ['updateStore', 'lastUpdated'],
+    selectedReddit: {
+      keyPath: ['selectStore', 'selectedReddit'],
+    },
+    lastUpdated: {
+      keyPath: ['updateStore', 'lastUpdated'],
+    },
     postIds: ['normaliseStore', 'postIds'],
-    posts: ['normaliseStore', 'posts'],
+    posts: {
+      keyPath: ['normaliseStore', 'posts'],
+    },
+    nodeIds: ['normaliseStore', 'nodes', 1, 'checklists'],
     hi: ['hiStore', 'hi'],
+
+
+    node1: CONTENT_TITLE_SELECTOR,
   },
+
+  isLoading: {
+    loading: [PAGE, 'fetchReddit'],
+  },
+
   // manuallySubscribe: true,
   // optimiseComparison: true,
 };
