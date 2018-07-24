@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`selectorHelpers SELECTOR_HELPERS normalise() should return selector array 1`] = `
+Object {
+  "cacheKey": "normaliseCacheKey",
+  "getter": "normaliseGetter",
+  "keyPath": "normaliseKeyPath",
+  "options": "normaliseOptions",
+  "props": "normaliseProps",
+}
+`;
+
+exports[`selectorHelpers SELECTOR_HELPERS normalise() should return selector cacheKey number 1`] = `
+Object {
+  "cacheKey": "normaliseCacheKey",
+  "getter": "normaliseGetter",
+  "keyPath": "normaliseKeyPath",
+  "options": "normaliseOptions",
+  "props": "normaliseProps",
+}
+`;
+
+exports[`selectorHelpers SELECTOR_HELPERS normalise() should return selector cacheKey string 1`] = `
+Object {
+  "cacheKey": "normaliseCacheKey",
+  "getter": "normaliseGetter",
+  "keyPath": "normaliseKeyPath",
+  "options": "normaliseOptions",
+  "props": "normaliseProps",
+}
+`;
+
+exports[`selectorHelpers SELECTOR_HELPERS normalise() should return selector function 1`] = `
+Object {
+  "cacheKey": "normaliseCacheKey",
+  "getter": "normaliseGetter",
+  "keyPath": "normaliseKeyPath",
+  "options": "normaliseOptions",
+  "props": "normaliseProps",
+}
+`;
+
+exports[`selectorHelpers SELECTOR_HELPERS select() should return createCachedSelector 1`] = `[Function]`;
+
+exports[`selectorHelpers SELECTOR_HELPERS select() should return createCachedSelector no keyPath no props 1`] = `[Function]`;
+
+exports[`selectorHelpers SELECTOR_UTILS normaliseOptions() should return cacheKey 1`] = `
+Object {
+  "cacheObject": FlatObjectCache {
+    "_cache": Object {},
+  },
+}
+`;
