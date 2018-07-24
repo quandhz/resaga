@@ -7,7 +7,7 @@ import { CONTENT_TITLE_SELECTOR } from '../containers/config';
 export class PostList extends React.PureComponent {
   render = () => {
     const {
-      postIds, visible, selected, onChange, remaining, node1,
+      postIds, visible, selected, onChange, remaining, node1PostList,
     } = this.props;
 
     const visiblePostIds = postIds.slice(0, visible);
@@ -23,7 +23,7 @@ export class PostList extends React.PureComponent {
     return (
       <div>
         <h3>Remaining: {remaining}</h3>
-        <h2>PostList {node1}</h2>
+        <h2>PostList {node1PostList}</h2>
         <ul>{list}</ul>
       </div>
     );
@@ -61,7 +61,7 @@ const CONFIG = {
     },
 
 
-    node1: 'content_title',
+    node1PostList: 'content_title',
   },
 };
 

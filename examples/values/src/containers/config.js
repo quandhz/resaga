@@ -1,3 +1,5 @@
+import dotProp from 'dot-prop-immutable';
+
 export const CONFIG = {
   setValue: {
     nodes: ['normaliseStore', 'nodes'],
@@ -14,7 +16,8 @@ export const CONFIG = {
       keyPath: ['normaliseStore', 'nodes', 1, 'checklists'],
     },
     nodeIdChecklists: {
-      keyPath: ({ id }) => ['normaliseStore', 'nodes', id, 'checklists'],
+      keyPath: ['normaliseStore', 'nodes'],
+      getter: (nodes, { id }) => dotProp.get(nodes, `${id}.checklists`),
     },
     nodeIdChildIdChecklists: {
       cacheKey: 'nodeIdChildIdChecklists',
@@ -43,15 +46,35 @@ export const CONFIG = {
       keyPath: ({ id }) => ['normaliseStore', 'nodes', id, 'content'],
       getter: (content) => `Content: ${content}`,
     },
+    nodeIdContentGetterExtras: {
+      keyPath: ({ id }) => ['normaliseStore', 'nodes', id, 'content'],
+      getter: (content, { childId }) => `Content: ${content} - ChildId ${childId}`,
+    },
+    nodeIdContentGetterOnly: {
+      getter: ({ nodeIdContentGetter }) => `${nodeIdContentGetter} (*getter)`,
+    },
     idsChecklists: {
       cacheKey: 'idsChecklists',
       keyPath: ({ ids }) => ids.map((id) => ['normaliseStore', 'nodes', id, 'checklists']),
-      props: [],
+      props: null,
       getter: (...results) => results.reduce((accu = [], value = []) => [...accu, ...value], []),
     },
     idsCount: {
       keyPath: ({ ids }) => ids.map((id) => ['normaliseStore', 'nodes', id, 'checklists', 'length']),
       props: () => 0,
+      getter: (...results) => results.reduce((accu, value) => accu + value, 0),
+    },
+    idsCountExtra: {
+      keyPath: ({ ids }) => ids.map((id) => ['normaliseStore', 'nodes', id, 'checklists', 'length']),
+      props: ({ id }) => id,
+      getter: (...results) => results.reduce((accu, value) => accu + value, 0),
+    },
+    idsCountExtras: {
+      keyPath: ({ ids }) => ids.map((id) => ['normaliseStore', 'nodes', id, 'checklists', 'length']),
+      props: [
+        ({ id }) => id,
+        ({ childId }) => childId,
+      ],
       getter: (...results) => results.reduce((accu, value) => accu + value, 0),
     },
     idsChecklistsExtras: {
