@@ -52,7 +52,7 @@
     "browserify-hmr": "^0.3.6",
     "codecov": "^3.0.0",
     "color-convert": "^1.9.1",
-    "enzyme": "^2.8.2",
+    "enzyme": "^3.4.4",
     "errno": "^0.1.7",
     "eslint": "^5.1.0",
     "eslint-config-airbnb": "^16.0.0",
