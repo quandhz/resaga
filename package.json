@@ -61,7 +61,7 @@
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0",
-    "eslint-plugin-redux-saga": "^0.9.0",
+    "eslint-plugin-redux-saga": "^1.0.0",
     "exorcist": "^1.0.1",
     "fast-deep-equal": "^2.0.1",
     "has-flag": "^3.0.0",
