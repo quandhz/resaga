@@ -10,7 +10,8 @@
   "plugins": [
     "redux-saga",
     "react",
-    "jsx-a11y"
+    "jsx-a11y",
+    "react-hooks"
   ],
   "parserOptions": {
     "ecmaVersion": 6,
@@ -20,6 +21,7 @@
     }
   },
   "rules": {
+    "react-hooks/rules-of-hooks": "error",
     "arrow-parens": [
       "error",
       "always"

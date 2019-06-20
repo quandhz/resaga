@@ -2,8 +2,19 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import PostList from './PostList';
 import PostContent from './PostContent';
-import resaga from '../../../../build';
+import Values from './Values';
+import resaga, { Value } from '../../../../build';
 import { CONTENT_TITLE_SELECTOR } from '../containers/config';
+
+
+const NEW_CONFIG = {
+  value: {
+    title: ({ selected }) => ({
+      keyPath: ['normaliseStore', 'posts', selected, 'title'],
+      getter: (c) => c,
+    }),
+  },
+};
 
 export class Posts extends PureComponent {
   state = {
@@ -21,6 +32,11 @@ export class Posts extends PureComponent {
 
     return (
       <div>
+        Render Prop <Value
+          selector={NEW_CONFIG.value.title({ selected })}
+          deps={[selected]}
+        />
+        <Values selected={selected} />
         <PostList
           postIds={postIds}
           checkitems={postTitles}
