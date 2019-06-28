@@ -12,8 +12,11 @@ export const BLOCK_THREAD = (sleepDuration) => {
 };
 
 export const CONTENT_TITLE_SELECTOR = {
-  cacheKey: 'content_title',
-  keyPath: ['normaliseStore', 'nodes', 1, 'content'],
+  // cacheKey: 'content_title',
+  keyPath: [
+    ['normaliseStore', 'nodes', 1, 'content'],
+    ['normaliseStore', 'nodes', 2, 'content'],
+  ],
   props: () => null,
   getter: (content) => {
     console.log('  > Slowly calculating content_title.....');

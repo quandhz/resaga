@@ -26,6 +26,10 @@ const nodeStore = {
       content: 'Lost in Japan',
       checklists: [11, 12, 13],
     },
+    2: {
+      content: 'Lots of events',
+      checklists: [21, 22],
+    },
 
     11: { checklists: [111, 112] },
     12: { checklists: [121, 122, 123] },
