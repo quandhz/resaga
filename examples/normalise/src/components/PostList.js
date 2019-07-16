@@ -47,15 +47,6 @@ PostList.defaultProps = {
 
 const CONFIG = {
   value: {
-    remaining: {
-      cacheKey: ({ checkitems }) => checkitems.toString(),
-      keyPath: ({ checkitems = [] }) => checkitems.map((id) => ['normaliseStore', 'nodes', id, 'status']),
-      getter: (...results) => {
-        const itemIds = results.length > 1 ? results.slice(0, -1) : results;
-
-        return itemIds.reduce((accumulate = 0, status) => status !== 'completed' ? accumulate + 1 : accumulate, 0);
-      },
-    },
     lastUpdated: {
       keyPath: ['updateStore', 'lastUpdated'],
     },

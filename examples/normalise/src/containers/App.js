@@ -2,9 +2,10 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { CONFIG } from './config';
-import resaga from '../../../../build';
+import resaga, { debug } from '../../../../build';
 import Picker from '../components/Picker';
 import Posts from '../components/Posts';
+import Content from '../components/Content';
 
 const editPost = (index = 0) => (posts) => {
   const keys = Object.keys(posts);
@@ -113,6 +114,8 @@ export class App extends PureComponent {
 
     return (
       <div>
+        <Content id={1} />
+        <Content id={2} />
         <Picker
           value={selectedReddit}
           onChange={this.fetchReddit}

@@ -19,7 +19,7 @@ export const CONTENT_TITLE_SELECTOR = {
   ],
   props: () => null,
   getter: (content) => {
-    console.log('  > Slowly calculating content_title.....');
+    console.log('  > Slowly calculating content_title.....', content);
     // BLOCK_THREAD(1000);
     console.log('  > Computing finish');
     return `Node Content: ${content}`;
