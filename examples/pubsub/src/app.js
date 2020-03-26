@@ -10,14 +10,14 @@ import { PAGE } from './containers/config';
 import { OTHER_PAGE } from './containers/otherConfig';
 import { reducer, sagas } from '../../../build';
 
-const store = configureStore({
+const config = configureStore({
   [PAGE]: reducer(PAGE),
   [OTHER_PAGE]: reducer(OTHER_PAGE),
 });
-store.runSaga(sagas[0]);
+config.runSaga(sagas[0]);
 
 render(
-  <Provider store={store}>
+  <Provider store={config.store}>
     <div>
       <h1>Component 1: Normal resaga component</h1>
       <h3>Reducer store registered as AsyncPage</h3>
