@@ -7,16 +7,16 @@ import App from './containers/App';
 import { PAGE } from './containers/config';
 import { reducer, sagas } from '../../../build';
 
-const store = configureStore({
+const config = configureStore({
   [PAGE]: reducer(PAGE),
   selectStore: reducer('selectStore'),
   updateStore: reducer('updateStore'),
   normaliseStore: reducer('normaliseStore'),
 });
-store.runSaga(sagas[0]);
+config.runSaga(sagas[0]);
 
 render(
-  <Provider store={store}>
+  <Provider store={config.store}>
     <App />
   </Provider>,
   document.getElementById('root')
