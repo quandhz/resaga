@@ -1,6 +1,6 @@
 {
   "name": "resaga",
-  "version": "0.9.2",
+  "version": "0.9.3",
   "description": "A reusable Reducer and Saga HOC library",
   "main": "./build/index.js",
   "files": [
@@ -104,8 +104,8 @@
     "lodash": "latest",
     "lodash.difference": "latest",
     "re-reselect": "3.4.0",
-    "react-redux": "7.0.2",
-    "connected-react-router": "6.4.0",
+    "react-redux": "7.2.1",
+    "connected-react-router": "6.6.1",
     "redux": "4.0.1",
     "redux-immutable": "4.0.0",
     "redux-saga": "1.0.2",
