@@ -1,6 +1,6 @@
 {
   "name": "resaga",
-  "version": "0.9.3",
+  "version": "0.9.4",
   "description": "A reusable Reducer and Saga HOC library",
   "main": "./build/index.js",
   "files": [
