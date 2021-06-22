@@ -66,7 +66,7 @@
     "exorcist": "^1.0.1",
     "fast-deep-equal": "^2.0.1",
     "has-flag": "^3.0.0",
-    "jest": "^23.1.0",
+    "jest": "^27.0.5",
     "json-schema-traverse": "^0.4.0",
     "lodash.flow": "^3.5.0",
     "lodash.map": "^4.6.0",
