@@ -73,12 +73,5 @@
     "require-yield": 0,
     "import/no-webpack-loader-syntax": 0,
     "function-paren-newline": 0
-  },
-  "settings": {
-    "import/resolver": {
-      "webpack": {
-        "config": "./internals/webpack/webpack.prod.babel.js"
-      }
-    }
   }
 }
